@@ -742,7 +742,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 4664829217016619672, guid: 4f952dba0b2402a4aa640846af5df8b3, type: 3}
   arrowSpawnPos: {fileID: 4426078850774238215}
   arrowLoaded: 1
-  reloadTime: 0.5
+  reloadTime: 1
   reloadTimerFill: {fileID: 4426078850904935048}
   loadedArrow: {fileID: 4426078850197937730}
   aimLine: {fileID: 4426078850172768723}
@@ -752,8 +752,8 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 256
-  reloadBtn: 1
-  shootBtn: 0
+  reloadBtn: 7
+  shootBtn: 6
 --- !u!1 &4426078850417255761
 GameObject:
   m_ObjectHideFlags: 0

@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b976432552e7ee459f58ca76a3e9feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowSpeed: 3
+  arrowSpeed: 10
   deathTime: 10
   destroyEffect: {fileID: 7321615143739912102, guid: 3447da46cedf6ef4582cb27f455d1fb4, type: 3}
   damageAmount: 1

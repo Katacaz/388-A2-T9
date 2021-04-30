@@ -29,6 +29,12 @@ public class Crossbow : MonoBehaviour
     [Header("Controls")]
     public Buttons reloadBtn;
     public Buttons shootBtn;
+    public Buttons highlightBtn;
+    private Highlight[] highlightables;
+    private float highlightRange = 15.0f;
+    private bool isHighlighting;
+    private float highlightTimer = 5.0f;
+    private float hTime;
     public enum Buttons
     {
         A,
@@ -53,6 +59,7 @@ public class Crossbow : MonoBehaviour
         UpdateLoadedArrow();
         ShootCheck();
         ReloadCheck();
+        HighlightCheck();
     }
     private bool ButtonPressCheck(Buttons button)
     {
@@ -227,6 +234,46 @@ public class Crossbow : MonoBehaviour
         } else
         {
             aimLine.gameObject.SetActive(false);
+        }
+    }
+    public void HighlightCheck()
+    {
+        if (isHighlighting)
+        {
+            if (hTime < highlightTimer)
+            {
+                hTime += Time.deltaTime;
+            } else
+            {
+                hTime = 0;
+                isHighlighting = false;
+                StopHighlight();
+            }
+        } else
+        {
+            if (ButtonPressCheck(highlightBtn))
+            {
+                isHighlighting = true;
+                HighlightObjects();
+            }
+        }
+        
+    }
+    public void HighlightObjects()
+    {
+        highlightables = FindObjectsOfType<Highlight>();
+        for (int i = 0; i < highlightables.Length; i++)
+        {
+            highlightables[i].StartHighlight();
+        }
+    }
+    public void StopHighlight()
+    {
+        
+        highlightables = FindObjectsOfType<Highlight>();
+        for (int i = 0; i < highlightables.Length; i++)
+        {
+            highlightables[i].StopHighlight();
         }
     }
 }
