@@ -47,7 +47,7 @@ public class Crossbow_Arrow : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Arrow Collided with " + other.transform.name);
+        //Debug.Log("Arrow Collided with " + other.transform.name);
         //Check if 
         Arrow_Target tar = other.GetComponent<Arrow_Target>();
         if (tar != null)

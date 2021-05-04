@@ -27,15 +27,18 @@ public class Crossbow : MonoBehaviour
 
 
     [Header("Controls")]
-    public Buttons reloadBtn;
-    public Buttons shootBtn;
-    public Buttons highlightBtn;
+    //public Buttons reloadBtn;
+    //public Buttons shootBtn;
+    //public Buttons highlightBtn;
+    public ControllerManager.Buttons reloadBtn;
+    public ControllerManager.Buttons shootBtn;
+    public ControllerManager.Buttons highlightBtn;
     private Highlight[] highlightables;
     private float highlightRange = 15.0f;
     private bool isHighlighting;
     private float highlightTimer = 5.0f;
     private float hTime;
-    public enum Buttons
+    /*public enum Buttons
     {
         A,
         B,
@@ -45,7 +48,7 @@ public class Crossbow : MonoBehaviour
         LButton,
         RTrigger,
         RButton
-    }
+    }*/
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +64,7 @@ public class Crossbow : MonoBehaviour
         ReloadCheck();
         HighlightCheck();
     }
-    private bool ButtonPressCheck(Buttons button)
+    /*private bool ButtonPressCheck(Buttons button)
     {
         bool status = false;
         switch (button)
@@ -132,7 +135,7 @@ public class Crossbow : MonoBehaviour
     private void ButtonDownCheck()
     {
 
-    }
+    }*/
     private void UpdateLoadedArrow()
     {
         loadedArrow.SetActive(arrowLoaded);
@@ -140,7 +143,7 @@ public class Crossbow : MonoBehaviour
     private void ShootCheck()
     {
         AimCheck();
-        if (ButtonPressCheck(shootBtn))
+        if (ControllerManager.ButtonPressCheck(shootBtn))
         {
             if (arrowLoaded)
             {
@@ -153,7 +156,7 @@ public class Crossbow : MonoBehaviour
     private void ReloadCheck()
     {
         reloadTimerFill.gameObject.SetActive(!arrowLoaded);
-        if (ButtonPressCheck(reloadBtn))
+        if (ControllerManager.ButtonPressCheck(reloadBtn))
         {
             if (!arrowLoaded)
             {
@@ -168,12 +171,11 @@ public class Crossbow : MonoBehaviour
                 {
                     arrowLoaded = true;
                     rTimer = 0;
-                    //Debug.Log("Arrow Successfully Reloaded");
                 }
                 
             }
         }
-        /*if (OVRInput.GetUp(reloadButton))
+        if (ControllerManager.ButtonUpCheck(reloadBtn))
         {
             if (!arrowLoaded)
             {
@@ -183,7 +185,7 @@ public class Crossbow : MonoBehaviour
                     //Debug.Log("RELOAD INTERUPTED");
                 }
             }
-        }*/
+        }
         reloadTimerFill.fillAmount = rTimer / reloadTime;
     }
     public void ShootArrow()
@@ -201,7 +203,7 @@ public class Crossbow : MonoBehaviour
     {
         if (arrowLoaded)
         {
-            aiming = ButtonTouchCheck(shootBtn);
+            aiming = ControllerManager.ButtonTouchCheck(shootBtn);
             aimLine.gameObject.SetActive(aiming);
             aimLine.SetPosition(0, arrowSpawnPos.transform.position);
             aimLine.SetPosition(1, arrowSpawnPos.transform.forward * aimDistance);
@@ -212,11 +214,12 @@ public class Crossbow : MonoBehaviour
                 if (Physics.Raycast(arrowSpawnPos.transform.position, arrowSpawnPos.transform.forward, out hit, aimDistance, targetLayer, QueryTriggerInteraction.Collide))
                 {
                     Arrow_Target tar = hit.collider.GetComponent<Arrow_Target>();
-                    if (tar != null)
+                    if (tar != null && tar.health > 0)
                     {
-                        // Target in range
+                        // Target in range and has health
                         aimLine.SetPosition(1, tar.transform.position);
                         lockedTarget = tar;
+
                     }
                     else
                     {
@@ -249,9 +252,15 @@ public class Crossbow : MonoBehaviour
                 isHighlighting = false;
                 StopHighlight();
             }
+            if (ControllerManager.ButtonUpCheck(highlightBtn))
+            {
+                hTime = 0;
+                isHighlighting = false;
+                StopHighlight();
+            }
         } else
         {
-            if (ButtonPressCheck(highlightBtn))
+            if (ControllerManager.ButtonPressCheck(highlightBtn))
             {
                 isHighlighting = true;
                 HighlightObjects();
@@ -261,15 +270,20 @@ public class Crossbow : MonoBehaviour
     }
     public void HighlightObjects()
     {
+        //Find all Highlightable Objects
         highlightables = FindObjectsOfType<Highlight>();
         for (int i = 0; i < highlightables.Length; i++)
         {
-            highlightables[i].StartHighlight();
+            //Check the distance to the object, if within the highlight range it will highlight it
+            if (Vector3.Distance(transform.position, highlightables[i].transform.position) < highlightRange)
+            {
+                highlightables[i].StartHighlight();
+            }
         }
     }
     public void StopHighlight()
     {
-        
+        //Find all highlightable objects and tell them to stop highlighting
         highlightables = FindObjectsOfType<Highlight>();
         for (int i = 0; i < highlightables.Length; i++)
         {
