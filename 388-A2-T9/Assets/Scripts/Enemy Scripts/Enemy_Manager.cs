@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Enemy_Manager : MonoBehaviour
 {
-    public List<Enemy> enemies;
+    public List<Enemy> enemies = new List<Enemy>();
 
-    public List<Enemy> defeatedEnemies;
+    public List<Enemy> defeatedEnemies = new List<Enemy>();
 
     public bool gameWin;
     public GameObject gameWinUI;
@@ -56,5 +56,11 @@ public class Enemy_Manager : MonoBehaviour
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Player Spotted, GAME OVER");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

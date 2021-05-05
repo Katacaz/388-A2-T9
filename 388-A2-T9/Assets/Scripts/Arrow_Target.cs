@@ -20,6 +20,8 @@ public class Arrow_Target : MonoBehaviour
     [Tooltip("Check for if this destroys object or relies on something else.")]
     public bool thisDestroysObject = true;
 
+    public Vector3 hitFromDirection = new Vector3();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class Arrow_Target : MonoBehaviour
     }
     public void TargetHit(int damageAmount, Vector3 hitPosition)
     {
+        hitFromDirection = hitPosition - this.transform.position;
         if (health > 0)
         {
             health -= damageAmount;

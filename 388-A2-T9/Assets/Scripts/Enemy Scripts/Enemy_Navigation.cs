@@ -19,10 +19,15 @@ public class Enemy_Navigation : MonoBehaviour
     public bool forwardPath;
 
     [Header("Search Vars")]
-    public Vector3 searchPosition;
-    public float searchRange = 5.0f;
+    public Vector3 searchPosition = new Vector3();
+    public float searchRange = 2.0f;
     public float searchTimer = 5.0f;
     private float searchTime;
+
+    [Header("Move Speeds")]
+    public float patrolSpeed = 1.5f;
+    public float searchSpeed = 2.5f;
+    public float alertSpeed = 3.5f;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -63,10 +68,11 @@ public class Enemy_Navigation : MonoBehaviour
 
     public void Idle()
     {
-
+        agent.isStopped = true;
     }
     public void Patrol()
     {
+        agent.speed = patrolSpeed;
         if (patrolPath == null)
         {
             patrolPath = FindClosestPatrolPath();
@@ -96,14 +102,17 @@ public class Enemy_Navigation : MonoBehaviour
                     patrolPath = patrolPath.connectedNodes[1];
                 }
             }
+            agent.isStopped = true;
 
         }
+        agent.isStopped = false;
         agent.SetDestination(patrolPath.transform.position);
         Debug.DrawLine(transform.position, patrolPath.transform.position, Color.green);
 
     }
     public void Search()
     {
+        agent.speed = searchSpeed;
         float distanceToSearchPosition = Vector3.Distance(transform.position, searchPosition);
         if (distanceToSearchPosition <= searchRange)
         {
@@ -111,9 +120,12 @@ public class Enemy_Navigation : MonoBehaviour
             if (enemyBase.suspicion > 0)
             {
                 enemyBase.ChangeSuspicion(-(Time.deltaTime * 2f));
-            } 
+            }
+            agent.isStopped = true;
+
         } else
         {
+            agent.isStopped = false;
             agent.SetDestination(searchPosition);
             Debug.DrawLine(transform.position, searchPosition, Color.red);
         }
@@ -132,19 +144,32 @@ public class Enemy_Navigation : MonoBehaviour
             {
                 searchTime = 0;
                 enemyBase.state = Enemy_Manager.EnemyState.Patrol;
+                enemyBase.suspiciousArea = Vector3.zero;
             }
 
         }
     }
     public void Alert()
     {
-
+        agent.speed = alertSpeed;
+        float distanceToPlayer = Vector3.Distance(transform.position, enemyBase.playerObject.transform.position);
+        if (distanceToPlayer <= 2.0f)
+        {
+            //Gotten close enough to player
+        } else
+        {
+            agent.isStopped = false;
+            agent.SetDestination(enemyBase.playerObject.transform.position);
+        }
     }
     public void Dead()
     {
         if(agent.velocity.magnitude > 0)
         {
             agent.velocity = Vector3.zero;
+            agent.isStopped = true;
+            agent.angularSpeed = 0;
+            agent.speed = 0;
         }
     }
     private Patrol_Node FindClosestPatrolPath()
@@ -162,5 +187,10 @@ public class Enemy_Navigation : MonoBehaviour
             }
         }
         return allNodes[nodeID];
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawSphere(searchPosition, searchRange);
     }
 }
