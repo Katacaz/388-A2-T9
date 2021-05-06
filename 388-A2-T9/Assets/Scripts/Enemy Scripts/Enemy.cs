@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         eManager = FindObjectOfType<Enemy_Manager>();
         eManager.enemies.Add(this);
         //Since the player has the enemy manager on them, just set the player to the manager
-        playerObject = eManager.gameObject;
+        playerObject = FindObjectOfType<Player>().gameObject;
         suspiciousArea = Vector3.zero;
     }
     // Start is called before the first frame update

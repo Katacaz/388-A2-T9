@@ -35,7 +35,7 @@ public class Arrow_Target : MonoBehaviour
     }
     public void TargetHit(int damageAmount, Vector3 hitPosition)
     {
-        hitFromDirection = hitPosition - this.transform.position;
+        hitFromDirection = (hitPosition - this.transform.position).normalized;
         if (health > 0)
         {
             health -= damageAmount;

@@ -109,24 +109,24 @@ public class Enemy_Detection : MonoBehaviour
                                 //Player hit with raycast
                                 Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.red);
                                 SawPlayer();
-                                //Debug.Log("Player in range, in angle and seen");
+                                Debug.Log("Player in range, in angle and seen");
                             } else
                             {
                                 Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.yellow);
-                                //Debug.Log("Player in range, in angle BUT not seen");
+                                Debug.Log("Player in range, in angle BUT not seen");
                             }
                         }
                         else
                         {
                             //Nothing hit by raycast
-                            //Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.grey);
+                            Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.grey);
                         }
                         
                     }
                     else
                     {
                         Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.green);
-                        //Debug.Log("Player in range, not in angle");
+                        Debug.Log("Player in range, not in angle");
                     }
                 }
             }

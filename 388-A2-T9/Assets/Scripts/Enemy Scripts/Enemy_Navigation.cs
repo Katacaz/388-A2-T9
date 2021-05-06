@@ -153,7 +153,7 @@ public class Enemy_Navigation : MonoBehaviour
     {
         agent.speed = alertSpeed;
         float distanceToPlayer = Vector3.Distance(transform.position, enemyBase.playerObject.transform.position);
-        if (distanceToPlayer <= 2.0f)
+        if (distanceToPlayer <= 5.0f)
         {
             //Gotten close enough to player
         } else
