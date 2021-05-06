@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     public float alertTime;
 
     public float deathAlertRange = 5.0f;
+
+    public GameObject deadObject;
     private void Awake()
     {
         eManager = FindObjectOfType<Enemy_Manager>();
@@ -45,6 +47,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        deadObject.SetActive(dead);
+        GetComponent<NavMeshAgent>().enabled = !dead;
         enemyAnim.SetFloat("Speed", movingSpeed);
         enemyAnim.SetBool("Dead", dead);
 
@@ -52,6 +56,7 @@ public class Enemy : MonoBehaviour
         {
             if (state == Enemy_Manager.EnemyState.Alert)
             {
+                eManager.playerSpotted = true;
                 if (alertTime < alertTimer)
                 {
                     alertTime += Time.deltaTime;
@@ -75,15 +80,19 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyDeath()
     {
-        dead = true;
-        enemyAnim.SetTrigger("Death");
-        state = Enemy_Manager.EnemyState.Dead;
-        //eManager.enemies.Remove(this);
-        if (!eManager.defeatedEnemies.Contains(this))
+        if (!dead)
         {
-            eManager.defeatedEnemies.Add(this);
+            dead = true;
+            enemyAnim.SetTrigger("Death");
+            state = Enemy_Manager.EnemyState.Dead;
+            //eManager.enemies.Remove(this);
+            if (!eManager.defeatedEnemies.Contains(this))
+            {
+                eManager.defeatedEnemies.Add(this);
+            }
+            AlertEnemiesArrowDirection(transform.position + targetInfo.hitFromDirection * 10f);
+            eManager.playerSpotted = false;
         }
-        AlertEnemiesArrowDirection(transform.position + targetInfo.hitFromDirection * 10f);
     }
 
     public void ChangeSuspicion(float amount)
@@ -115,6 +124,7 @@ public class Enemy : MonoBehaviour
     public void PlayerSpotted()
     {
         state = Enemy_Manager.EnemyState.Alert;
+        
     }
 
     public void AlertEnemiesArrowDirection(Vector3 areaToSearch)

@@ -16,6 +16,11 @@ public class Enemy_Manager : MonoBehaviour
     public TextMeshProUGUI remainingEnemiesText;
     public int remainingEnemies;
 
+    public int sceneIndexToLoadOnWin = 0;
+    public int sceneIndexToLoadOnLoss = 0;
+
+    public bool playerSpotted;
+
     public enum EnemyState
     {
         Idle,
@@ -39,7 +44,12 @@ public class Enemy_Manager : MonoBehaviour
     void Update()
     {
         UpdateRemainingEnemies();
-        gameWinUI.SetActive(AllEnemiesDefeated());
+
+        if (AllEnemiesDefeated())
+        {
+            SceneManager.LoadScene(sceneIndexToLoadOnWin);
+        }
+        gameWinUI.SetActive(playerSpotted);
         
     }
     public void UpdateRemainingEnemies()
@@ -61,6 +71,6 @@ public class Enemy_Manager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Player Spotted, GAME OVER");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(sceneIndexToLoadOnLoss);
     }
 }

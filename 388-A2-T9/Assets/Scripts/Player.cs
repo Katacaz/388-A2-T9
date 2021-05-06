@@ -15,4 +15,15 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        TriggerOnPlayerTouch tar = other.GetComponent<TriggerOnPlayerTouch>();
+        if (tar != null)
+        {
+            //Target hit
+            tar.TriggeredByPlayer();
+        }
+        
+    }
 }

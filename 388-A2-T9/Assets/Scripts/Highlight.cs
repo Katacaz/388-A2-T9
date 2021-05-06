@@ -8,12 +8,20 @@ public class Highlight : MonoBehaviour
     public Material highlightMat;
 
     public SkinnedMeshRenderer mesh;
+    public MeshRenderer mR;
 
     public bool isHighlighted;
     // Start is called before the first frame update
     void Start()
     {
-        defaultMat = mesh.material;
+        if (mesh != null)
+        {
+            defaultMat = mesh.material;
+        }
+        else if (mR != null)
+        {
+            defaultMat = mR.material;
+        }
     }
 
     // Update is called once per frame
@@ -23,12 +31,23 @@ public class Highlight : MonoBehaviour
     }
     public void StartHighlight()
     {
-        mesh.material = highlightMat;
+
+        ChangeMaterial(highlightMat);
         isHighlighted = true;
     }
     public void StopHighlight()
     {
-        mesh.material = defaultMat;
+        ChangeMaterial(defaultMat);
         isHighlighted = false;
+    }
+    public void ChangeMaterial(Material mat)
+    {
+        if (mesh != null)
+        {
+            mesh.material = mat;
+        } else if (mR != null)
+        {
+            mR.material = mat;
+        }
     }
 }

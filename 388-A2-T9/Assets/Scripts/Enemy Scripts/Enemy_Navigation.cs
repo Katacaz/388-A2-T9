@@ -42,27 +42,34 @@ public class Enemy_Navigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyBase.movingSpeed = agent.velocity.magnitude;
-        state = enemyBase.state;
-        willPatrol = enemyBase.willPatrol;
-        searchPosition = enemyBase.suspiciousArea;
-        switch (state)
+        if (!enemyBase.dead)
         {
-            case Enemy_Manager.EnemyState.Idle:
-                Idle();
-                break;
-            case Enemy_Manager.EnemyState.Patrol:
-                Patrol();
-                break;
-            case Enemy_Manager.EnemyState.Search:
-                Search();
-                break;
-            case Enemy_Manager.EnemyState.Alert:
-                Alert();
-                break;
-            case Enemy_Manager.EnemyState.Dead:
-                Dead();
-                break;
+            enemyBase.movingSpeed = agent.velocity.magnitude;
+            state = enemyBase.state;
+            willPatrol = enemyBase.willPatrol;
+            searchPosition = enemyBase.suspiciousArea;
+            switch (state)
+            {
+                case Enemy_Manager.EnemyState.Idle:
+                    Idle();
+                    break;
+                case Enemy_Manager.EnemyState.Patrol:
+                    Patrol();
+                    break;
+                case Enemy_Manager.EnemyState.Search:
+                    Search();
+                    break;
+                case Enemy_Manager.EnemyState.Alert:
+                    Alert();
+                    break;
+                case Enemy_Manager.EnemyState.Dead:
+                    Dead();
+                    break;
+            }
+        }
+        else
+        {
+            Dead();
         }
     }
 

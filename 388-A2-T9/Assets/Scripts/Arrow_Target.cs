@@ -8,7 +8,7 @@ public class Arrow_Target : MonoBehaviour
     [Tooltip("Object that will be destroyed, if empty it destroys this object")]
     public GameObject parent;
     [Header("Stats")]
-    public int health;
+    public int health = 1;
     [Header("Effects")]
     [Tooltip("Effect Prefab made if hit and survives")]
     public GameObject hitEffect;
@@ -19,6 +19,8 @@ public class Arrow_Target : MonoBehaviour
     public UnityEvent onDeath;
     [Tooltip("Check for if this destroys object or relies on something else.")]
     public bool thisDestroysObject = true;
+    [Tooltip("Checking Invincibility will disable it taking damage, thus no death events.")]
+    public bool indestructable;
 
     public Vector3 hitFromDirection = new Vector3();
 
@@ -38,8 +40,11 @@ public class Arrow_Target : MonoBehaviour
         hitFromDirection = (hitPosition - this.transform.position).normalized;
         if (health > 0)
         {
-            health -= damageAmount;
-            if (health <= 0)
+            if (!indestructable)
+            {
+                health -= damageAmount;
+            }
+            if (health <= 0 && !indestructable)
             {
                 //Target Dead
                 TargetDestroyed();

@@ -275,7 +275,7 @@ public class Crossbow : MonoBehaviour
         for (int i = 0; i < highlightables.Length; i++)
         {
             //Check the distance to the object, if within the highlight range it will highlight it
-            if (Vector3.Distance(transform.position, highlightables[i].transform.position) < highlightRange)
+            if (Vector3.Distance(transform.position, highlightables[i].transform.position) < highlightRange * 2)
             {
                 highlightables[i].StartHighlight();
             }
