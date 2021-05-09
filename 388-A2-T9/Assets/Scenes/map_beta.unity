@@ -38614,7 +38614,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.002491996, g: 0.47629887, b: 0.5283019, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -43619,7 +43619,7 @@ GameObject:
   - component: {fileID: 1792313307}
   - component: {fileID: 1792313306}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: water_fall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
