@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations.Rigging;
 
 public class Enemy : MonoBehaviour
 {
@@ -18,15 +19,30 @@ public class Enemy : MonoBehaviour
     [Range(0, 100)]
     public float suspicion;
     public Vector3 suspiciousArea = new Vector3();
+    [Range(0, 100)]
+    public float alertProgress;
+    public float alertPerSecond = 10f; //10 seconds to fully alert
 
     public GameObject playerObject;
 
     public float alertTimer = 5.0f;
     public float alertTime;
 
-    public float deathAlertRange = 5.0f;
+    public float deathAlertRange = 10.0f;
 
     public GameObject deadObject;
+    [Header("Held Object Related")]
+    public Rig armRig;
+    public GameObject heldObject;
+
+    [Header("Enemy Info")]
+    public Sprite icon;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip deathSND;
+    public AudioClip searchSND;
+    public AudioClip alertSND;
     private void Awake()
     {
         eManager = FindObjectOfType<Enemy_Manager>();
@@ -48,6 +64,20 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         deadObject.SetActive(dead);
+        if (heldObject != null)
+        {
+            heldObject.SetActive(!dead);
+            if (dead)
+            {
+                armRig.weight = 0;
+            } else
+            {
+                armRig.weight = 1;
+            }
+        } else
+        {
+            armRig.weight = 0;
+        }
         GetComponent<NavMeshAgent>().enabled = !dead;
         enemyAnim.SetFloat("Speed", movingSpeed);
         enemyAnim.SetBool("Dead", dead);
@@ -57,15 +87,17 @@ public class Enemy : MonoBehaviour
             if (state == Enemy_Manager.EnemyState.Alert)
             {
                 eManager.playerSpotted = true;
-                if (alertTime < alertTimer)
+                if (alertProgress < 100)
                 {
-                    alertTime += Time.deltaTime;
-                } else
+                    alertProgress += Time.deltaTime * alertPerSecond;
+                }
+            } else
+            {
+                eManager.playerSpotted = false;
+                //If not alerted, decrease alert progress until 0 constantly
+                if (alertProgress > 0)
                 {
-                    state = Enemy_Manager.EnemyState.Idle;
-                    alertTime = 0;
-                    eManager.GameOver();
-                    
+                    alertProgress -= Time.deltaTime * (alertPerSecond * 0.5f);
                 }
             }
         } else
@@ -80,6 +112,11 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyDeath()
     {
+        if (deathSND != null)
+        {
+            audioSource.clip = deathSND;
+            audioSource.Play();
+        }
         if (!dead)
         {
             dead = true;
@@ -90,7 +127,7 @@ public class Enemy : MonoBehaviour
             {
                 eManager.defeatedEnemies.Add(this);
             }
-            AlertEnemiesArrowDirection(transform.position + targetInfo.hitFromDirection * 10f);
+            AlertEnemiesArrowDirection(transform.position + targetInfo.hitFromDirection * 10f, 100);
             eManager.playerSpotted = false;
         }
     }
@@ -109,33 +146,50 @@ public class Enemy : MonoBehaviour
 
     public void StartSearch(Vector3 searchArea, float suspicionAmount)
     {
-        if (state != Enemy_Manager.EnemyState.Alert)
+        if (willPatrol)
         {
-            if (willPatrol)
-            {
-                ChangeSuspicion(suspicionAmount);
-                suspiciousArea = searchArea;
+            ChangeSuspicion(suspicionAmount);
+            suspiciousArea = searchArea;
 
-                state = Enemy_Manager.EnemyState.Search;
-            }
+            state = Enemy_Manager.EnemyState.Search;
+        } else
+        {
+            AlertEnemiesArrowDirection(searchArea, suspicionAmount);
+        }
+        if (searchSND != null)
+        {
+            audioSource.clip = searchSND;
+            audioSource.Play();
         }
     }
 
     public void PlayerSpotted()
     {
         state = Enemy_Manager.EnemyState.Alert;
+        if (alertSND != null)
+        {
+            audioSource.clip = alertSND;
+            audioSource.Play();
+        }
         
     }
+    public void PlayerCaught()
+    {
+        eManager.GameOver();
+    }
 
-    public void AlertEnemiesArrowDirection(Vector3 areaToSearch)
+    public void AlertEnemiesArrowDirection(Vector3 areaToSearch, float suspicionAmount)
     {
         Enemy[] allEnemies = FindObjectsOfType<Enemy>();
 
         for (int i = 0; i < allEnemies.Length; i++)
         {
-            if (Vector3.Distance(transform.position, allEnemies[i].transform.position) < deathAlertRange)
+            if (allEnemies[i] != this)
             {
-                allEnemies[i].StartSearch(areaToSearch, 100);
+                if (Vector3.Distance(transform.position, allEnemies[i].transform.position) < deathAlertRange)
+                {
+                    allEnemies[i].StartSearch(areaToSearch, suspicionAmount);
+                }
             }
         }
     }

@@ -27,7 +27,7 @@ public class Enemy_Navigation : MonoBehaviour
     [Header("Move Speeds")]
     public float patrolSpeed = 1.5f;
     public float searchSpeed = 2.5f;
-    public float alertSpeed = 3.5f;
+    public float alertSpeed = 2.5f;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -159,15 +159,23 @@ public class Enemy_Navigation : MonoBehaviour
     public void Alert()
     {
         agent.speed = alertSpeed;
-        float distanceToPlayer = Vector3.Distance(transform.position, enemyBase.playerObject.transform.position);
-        if (distanceToPlayer <= 5.0f)
+        agent.isStopped = true;
+        if (enemyBase.alertProgress >= 100)
         {
-            //Gotten close enough to player
-        } else
-        {
-            agent.isStopped = false;
-            agent.SetDestination(enemyBase.playerObject.transform.position);
+            float distanceToPlayer = Vector3.Distance(transform.position, enemyBase.playerObject.transform.position);
+            if (distanceToPlayer <= 2.0f)
+            {
+                //Gotten close enough to player
+                agent.isStopped = true;
+                enemyBase.PlayerCaught();
+            }
+            else
+            {
+                agent.isStopped = false;
+                agent.SetDestination(enemyBase.playerObject.transform.position);
+            }
         }
+
     }
     public void Dead()
     {

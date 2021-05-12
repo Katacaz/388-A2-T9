@@ -31,6 +31,11 @@ public class Enemy_Detection : MonoBehaviour
     [Header("Raycast Related")]
     public LayerMask playerLayer;
 
+    [Header("Animator Relatted")]
+    public Animator lookAnim;
+
+    Vector3 playerLastSeen = new Vector3();
+
     private void Awake()
     {
         enemyBase = GetComponent<Enemy>();
@@ -47,6 +52,14 @@ public class Enemy_Detection : MonoBehaviour
     void Update()
     {
         searching = (enemyBase.state == Enemy_Manager.EnemyState.Search);
+        lookAnim.SetBool("Searching", ((searching && looking) || (enemyBase.state == Enemy_Manager.EnemyState.Idle && looking)));
+        if (searching)
+        {
+            lookAnim.SetFloat("SearchSpeed", 1.0f);
+        } else
+        {
+            lookAnim.SetFloat("SearchSpeed", 0.5f);
+        }
         alert = (enemyBase.state == Enemy_Manager.EnemyState.Alert);
 
         if (!alert && !enemyBase.dead)
@@ -62,10 +75,11 @@ public class Enemy_Detection : MonoBehaviour
         searchFill.fillAmount = (enemyBase.suspicion / 100f);
         Color searchColor = searchFill.color;
         searchColor.a = (enemyBase.suspicion / 100f);
+        searchFill.color = searchColor;
 
-        alertFill.fillAmount = (enemyBase.alertTime / enemyBase.alertTimer);
+        alertFill.fillAmount = (enemyBase.alertProgress / 100f);
         Color alertColor = alertFill.color;
-        alertColor.a = (enemyBase.alertTime / enemyBase.alertTimer);
+        alertColor.a = (enemyBase.alertProgress / 100f);
         alertFill.color = alertColor; ;
 
 
@@ -78,65 +92,86 @@ public class Enemy_Detection : MonoBehaviour
             //Move about the look target position
             if (playerSeen)
             {
+                /*Vector3 lookDir = (transform.position - enemyBase.playerObject.transform.position);
+                lookDir.x = 0;
+                lookDir.z = 0;
+                Quaternion rot = Quaternion.LookRotation(lookDir);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);*/
                 lookTarget.transform.position = enemyBase.playerObject.transform.position;
-            }
-            else
+            } else
             {
-                if (enemyBase.suspicion > 0)
+                if (alert)
                 {
-                    lookTarget.transform.position = enemyBase.suspiciousArea;
+                    enemyBase.StartSearch(playerLastSeen, 100);
                 }
-                else
+            }
+            if (enemyBase.suspicion > 0)
+            {
+                /*Vector3 lookDir = (transform.position - enemyBase.suspiciousArea);
+                lookDir.x = 0;
+                lookDir.z = 0;
+                Quaternion rot = Quaternion.LookRotation(lookDir);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);*/
+                //lookTarget.transform.position = enemyBase.suspiciousArea;
+            }
+            //Check if player is in range of viewing angle
+            Vector3 playerDirection = (enemyBase.playerObject.transform.position - enemyHead.transform.position);
+            float angle = Vector3.Angle(playerDirection, enemyHead.transform.forward);
+            float playerDistance = Vector3.Distance(enemyHead.transform.position, enemyBase.playerObject.transform.position);
+            //Check if player is in range
+            if (playerDistance < detectionRange)
+            {
+                //Check if player is within the vision angle
+                if (angle < peripheralAngle)
                 {
-                    lookTarget.transform.localPosition = lookTargetDefaultPos;
-                }
-                //Check if player is in range of viewing angle
-                Vector3 playerDirection = (enemyBase.playerObject.transform.position - enemyHead.transform.position);
-                float angle = Vector3.Angle(playerDirection, enemyHead.transform.forward);
-                float playerDistance = Vector3.Distance(enemyHead.transform.position, enemyBase.playerObject.transform.position);
-                //Check if player is in range
-                if (playerDistance < detectionRange)
-                {
-                    //Check if player is within the vision angle
-                    if (angle < peripheralAngle)
+                    //Check if actually visible
+                    RaycastHit hit;
+                    if (Physics.Raycast(enemyHead.transform.position, playerDirection, out hit, detectionRange, playerLayer, QueryTriggerInteraction.Collide))
                     {
-                        //Check if actually visible
-                        RaycastHit hit;
-                        if (Physics.Raycast(enemyHead.transform.position, playerDirection, out hit, detectionRange, playerLayer, QueryTriggerInteraction.Collide))
+                        if (hit.collider.CompareTag("Player"))
                         {
-                            if (hit.collider.CompareTag("Player"))
-                            {
-                                //Player hit with raycast
-                                Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.red);
-                                SawPlayer();
-                                Debug.Log("Player in range, in angle and seen");
-                            } else
-                            {
-                                Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.yellow);
-                                Debug.Log("Player in range, in angle BUT not seen");
-                            }
+                            //Player hit with raycast
+                            Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.red);
+                            SawPlayer();
+                            //Debug.Log("Player in range, in angle and seen");
                         }
                         else
                         {
-                            //Nothing hit by raycast
-                            Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.grey);
+                            Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.yellow);
+                            //Debug.Log("Player in range, in angle BUT not seen");
+                            playerSeen = false;
                         }
-                        
                     }
                     else
                     {
-                        Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.green);
-                        Debug.Log("Player in range, not in angle");
+                        //Nothing hit by raycast
+                        //Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.grey);
+                        playerSeen = false;
                     }
+
                 }
+                else
+                {
+                    Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.green);
+                    playerSeen = false;
+                    //Debug.Log("Player in range, not in angle");
+                }
+            } else
+            {
+                //Player out of detection Range
+                playerSeen = false;
             }
 
 
+        } else
+        {
+            playerSeen = false;
         }
     }
     public void SawPlayer()
     {
         playerSeen = true;
+        playerLastSeen = enemyBase.playerObject.transform.position;
         enemyBase.PlayerSpotted();
     }
 
@@ -144,7 +179,8 @@ public class Enemy_Detection : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(enemyHead.transform.position, detectionRange);
-        //Gizmos.DrawLine(enemyHead.transform.position, (enemyHead.transform.position + enemyHead.transform.forward * detectionRange));
+        Gizmos.DrawLine(enemyHead.transform.position, (enemyHead.transform.position + enemyHead.transform.forward * detectionRange));
         //Gizmos.color = Color.green;
+        
     }
 }

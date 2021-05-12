@@ -14,12 +14,14 @@ public class Crossbow : MonoBehaviour
     public Image reloadTimerFill;
 
     public GameObject loadedArrow;
-
+    [Header("Aiming")]
     public LineRenderer aimLine;
     public bool aiming;
     private Arrow_Target lockedTarget;
-
     public float aimDistance = 20.0f;
+    public Material aimLocked;
+    public Material aimMiss;
+    public Material aimOutOfRange;
 
     public bool autoReload;
 
@@ -27,9 +29,6 @@ public class Crossbow : MonoBehaviour
 
 
     [Header("Controls")]
-    //public Buttons reloadBtn;
-    //public Buttons shootBtn;
-    //public Buttons highlightBtn;
     public ControllerManager.Buttons reloadBtn;
     public ControllerManager.Buttons shootBtn;
     public ControllerManager.Buttons highlightBtn;
@@ -38,17 +37,13 @@ public class Crossbow : MonoBehaviour
     private bool isHighlighting;
     private float highlightTimer = 5.0f;
     private float hTime;
-    /*public enum Buttons
-    {
-        A,
-        B,
-        X,
-        Y,
-        LTrigger,
-        LButton,
-        RTrigger,
-        RButton
-    }*/
+
+    [Header("Audio Related")]
+    public AudioSource audioSource;
+    public AudioClip arrowLoadedSND;
+    public AudioClip arrowFiredSND;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -58,84 +53,12 @@ public class Crossbow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OVRInput.Update();
         UpdateLoadedArrow();
         ShootCheck();
         ReloadCheck();
         HighlightCheck();
     }
-    /*private bool ButtonPressCheck(Buttons button)
-    {
-        bool status = false;
-        switch (button)
-        {
-            case Buttons.A:
-                status = OVRInput.Get(OVRInput.RawButton.A);
-                break;
-            case Buttons.B:
-                status = OVRInput.Get(OVRInput.RawButton.B);
-                break;
-            case Buttons.X:
-                status = OVRInput.Get(OVRInput.RawButton.X);
-                break;
-            case Buttons.Y:
-                status = OVRInput.Get(OVRInput.RawButton.Y);
-                break;
-            case Buttons.LTrigger:
-                status = OVRInput.Get(OVRInput.RawButton.LIndexTrigger);
-                break;
-            case Buttons.LButton:
-                status = OVRInput.Get(OVRInput.RawButton.LHandTrigger);
-                break;
-            case Buttons.RTrigger:
-                status = OVRInput.Get(OVRInput.RawButton.RIndexTrigger);
-                break;
-            case Buttons.RButton:
-                status = OVRInput.Get(OVRInput.RawButton.RHandTrigger);
-                break;
-        }
-        return status;
-    }
-    private bool ButtonTouchCheck(Buttons button)
-    {
-        bool status = false;
-        switch (button)
-        {
-            case Buttons.A:
-                status = OVRInput.Get(OVRInput.RawTouch.A);
-                break;
-            case Buttons.B:
-                status = OVRInput.Get(OVRInput.RawTouch.B);
-                break;
-            case Buttons.X:
-                status = OVRInput.Get(OVRInput.RawTouch.X);
-                break;
-            case Buttons.Y:
-                status = OVRInput.Get(OVRInput.RawTouch.Y);
-                break;
-            case Buttons.LTrigger:
-                status = OVRInput.Get(OVRInput.RawTouch.LIndexTrigger);
-                break;
-            case Buttons.LButton:
-                status = OVRInput.Get(OVRInput.RawTouch.LTouchpad);
-                break;
-            case Buttons.RTrigger:
-                status = OVRInput.Get(OVRInput.RawTouch.RIndexTrigger);
-                break;
-            case Buttons.RButton:
-                status = OVRInput.Get(OVRInput.RawTouch.RTouchpad);
-                break;
-        }
-        return status;
-    }
-    private void ButtonUpCheck()
-    {
 
-    }
-    private void ButtonDownCheck()
-    {
-
-    }*/
     private void UpdateLoadedArrow()
     {
         loadedArrow.SetActive(arrowLoaded);
@@ -171,6 +94,11 @@ public class Crossbow : MonoBehaviour
                 {
                     arrowLoaded = true;
                     rTimer = 0;
+                    if (arrowLoadedSND != null)
+                    {
+                        audioSource.clip = arrowLoadedSND;
+                        audioSource.Play();
+                    }
                 }
                 
             }
@@ -196,6 +124,11 @@ public class Crossbow : MonoBehaviour
         arrow.transform.rotation = arrowSpawnPos.rotation;
 
         arrow.GetComponent<Crossbow_Arrow>().SetTarget(lockedTarget);
+        if (arrowFiredSND != null)
+        {
+            audioSource.clip = arrowFiredSND;
+            audioSource.Play();
+        }
         //Debug.Log("Shot Arrow");
     }
 
@@ -207,30 +140,40 @@ public class Crossbow : MonoBehaviour
             aimLine.gameObject.SetActive(aiming);
             aimLine.SetPosition(0, arrowSpawnPos.transform.position);
             aimLine.SetPosition(1, arrowSpawnPos.transform.forward * aimDistance);
-            
+
             if (aiming)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(arrowSpawnPos.transform.position, arrowSpawnPos.transform.forward, out hit, aimDistance, targetLayer, QueryTriggerInteraction.Collide))
+                if (Physics.Raycast(arrowSpawnPos.transform.position, arrowSpawnPos.transform.forward, out hit, Mathf.Infinity, targetLayer, QueryTriggerInteraction.Collide))
                 {
                     Arrow_Target tar = hit.collider.GetComponent<Arrow_Target>();
-                    if (tar != null && tar.health > 0)
+                    if (tar != null && tar.health > 0 && Vector3.Distance(arrowSpawnPos.transform.position, hit.point) > aimDistance)
                     {
-                        // Target in range and has health
+                        //Valid target, but not in range
+                        aimLine.SetPosition(1, arrowSpawnPos.transform.forward * aimDistance + arrowSpawnPos.position);
+                        aimLine.material = aimOutOfRange;
+                        lockedTarget = null;
+                    }
+                    else if (tar != null && tar.health > 0 && Vector3.Distance(arrowSpawnPos.transform.position, hit.point) <= aimDistance)
+                    {
+                        //Valid target and in range
                         aimLine.SetPosition(1, tar.transform.position);
+                        aimLine.material = aimLocked;
                         lockedTarget = tar;
 
                     }
-                    else
+                    else if (tar == null || tar.health <= 0)
                     {
                         //Target not visible
                         aimLine.SetPosition(1, arrowSpawnPos.transform.forward * aimDistance + arrowSpawnPos.position);
+                        aimLine.material = aimMiss;
                         lockedTarget = null;
                     }
                 } else
                 {
                     // If raycast didn't hit anything
                     aimLine.SetPosition(1, arrowSpawnPos.transform.forward * aimDistance + arrowSpawnPos.position);
+                    aimLine.material = aimMiss;
                     lockedTarget = null;
                 }
             }

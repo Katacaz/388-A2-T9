@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,11 @@ public class Enemy_Manager : MonoBehaviour
     public bool gameWin;
     public GameObject gameWinUI;
 
+    public GameObject remainingEnemiesFrame;
+    public bool remainingEnemiesToggle = true;
+    public OVRInput.Button remainingEnemiesBtn;
+    //public ControllerManager.Buttons remainingEnemiesBtn;
+    public GameObject enemyIconPrefab;
     public TextMeshProUGUI remainingEnemiesText;
     public int remainingEnemies;
 
@@ -37,12 +43,17 @@ public class Enemy_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetUpRemainingEnemies();
     }
 
     // Update is called once per frame
     void Update()
     {
+        remainingEnemiesFrame.SetActive(remainingEnemiesToggle);
+        if (OVRInput.GetDown(remainingEnemiesBtn))//ControllerManager.ButtonDownCheck(remainingEnemiesBtn))
+        {
+            ToggleRemainingEnemies(!remainingEnemiesToggle);
+        }
         UpdateRemainingEnemies();
 
         if (AllEnemiesDefeated())
@@ -52,11 +63,25 @@ public class Enemy_Manager : MonoBehaviour
         gameWinUI.SetActive(playerSpotted);
         
     }
+    public void ToggleRemainingEnemies(bool state)
+    {
+        remainingEnemiesToggle = state;
+    }
+    public void SetUpRemainingEnemies()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            GameObject iconObj = Instantiate(enemyIconPrefab, remainingEnemiesFrame.transform);
+            EnemyIcon icon = iconObj.GetComponent<EnemyIcon>();
+            icon.SetUpIcon(enemies[i]);
+        }
+    }
     public void UpdateRemainingEnemies()
     {
         remainingEnemies = (enemies.Count - defeatedEnemies.Count);
         remainingEnemiesText.text = "Remaining Enemies: " + remainingEnemies;
     }
+
 
     public bool AllEnemiesDefeated()
     {

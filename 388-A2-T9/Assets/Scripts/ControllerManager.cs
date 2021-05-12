@@ -82,9 +82,43 @@ public  static class ControllerManager
         }
         return status;
     }
+    //Check if button was just pressed
+    public static bool ButtonDownCheck(Buttons button)
+    {
+        bool status = false;
+        switch (button)
+        {
+            case Buttons.A:
+                status = OVRInput.GetDown(OVRInput.RawButton.A);
+                break;
+            case Buttons.B:
+                status = OVRInput.GetDown(OVRInput.RawButton.B);
+                break;
+            case Buttons.X:
+                status = OVRInput.GetDown(OVRInput.RawButton.X);
+                break;
+            case Buttons.Y:
+                status = OVRInput.GetDown(OVRInput.RawButton.Y);
+                break;
+            case Buttons.LTrigger:
+                status = OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger);
+                break;
+            case Buttons.LButton:
+                status = OVRInput.GetDown(OVRInput.RawButton.LHandTrigger);
+                break;
+            case Buttons.RTrigger:
+                status = OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger);
+                break;
+            case Buttons.RButton:
+                status = OVRInput.GetDown(OVRInput.RawButton.RHandTrigger);
+                break;
+        }
+        return status;
+    }
     //Check if button is being touched
     public static bool ButtonTouchCheck(Buttons button)
     {
+        OVRInput.Update();
         bool status = false;
         switch (button)
         {

@@ -15,6 +15,8 @@ public class Crossbow_Arrow : MonoBehaviour
     public Arrow_Target target;
 
     public LayerMask hitLayer;
+
+    Vector3 prev = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,27 @@ public class Crossbow_Arrow : MonoBehaviour
         {
             DestroyArrow();
         }
+    }
+    private void FixedUpdate()
+    {
+        if (prev != Vector3.zero)
+        {
+            RaycastHit hit;
+            if (Physics.Linecast(prev, transform.position, out hit))
+            {
+                Arrow_Target tar = hit.collider.GetComponent<Arrow_Target>();
+                if (tar != null)
+                {
+                    tar.TargetHit(damageAmount, hit.point);
+                    DestroyArrow();
+                }
+                if (hit.collider.gameObject.layer == hitLayer)
+                {
+                    DestroyArrow();
+                }
+            }
+        }
+        prev = transform.position;
     }
     public void SetTarget(Arrow_Target tar)
     {
