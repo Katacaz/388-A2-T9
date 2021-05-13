@@ -4862,7 +4862,7 @@ MonoBehaviour:
   deadObject: {fileID: 8492106636263705239}
   armRig: {fileID: 4923874134897857594}
   heldObject: {fileID: 36413155541520389}
-  icon: {fileID: 21300000, guid: 79bdbe8dffb610b4c9ae84809ed9fc54, type: 3}
+  icon: {fileID: 21300000, guid: 1e7c10e2c3ee0a44cb4443e8d00044bb, type: 3}
   audioSource: {fileID: 7058689106035619504}
   deathSND: {fileID: 8300000, guid: e4f186156498ad24b9d5f486bf19338c, type: 3}
   searchSND: {fileID: 8300000, guid: 33b2c15e399a2624d8fad7fb03b294a6, type: 3}

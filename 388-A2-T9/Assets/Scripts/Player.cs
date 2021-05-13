@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public bool canSummonCrossbow;
     public GameObject crossbowObject;
     public bool crossbowToggle;
-    public OVRInput.Button crossbowToggleBtn;
+    public OVRInput.RawButton crossbowToggleBtn;
     //public ControllerManager.Buttons crossbowToggleBtn;
     public GameObject crossbowSummonEffect;
     public GameObject crossbowDesummonEffect;

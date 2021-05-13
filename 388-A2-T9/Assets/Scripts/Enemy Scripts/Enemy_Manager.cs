@@ -16,7 +16,7 @@ public class Enemy_Manager : MonoBehaviour
 
     public GameObject remainingEnemiesFrame;
     public bool remainingEnemiesToggle = true;
-    public OVRInput.Button remainingEnemiesBtn;
+    public OVRInput.RawButton remainingEnemiesBtn;
     //public ControllerManager.Buttons remainingEnemiesBtn;
     public GameObject enemyIconPrefab;
     public TextMeshProUGUI remainingEnemiesText;
