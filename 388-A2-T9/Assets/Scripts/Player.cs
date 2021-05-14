@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public OVRGrabber rightHandGrabber;
     public OVRGrabber leftHandGrabber;
 
+    public float enemyNearbyRange = 2.0f;
+
     private void Awake()
     {
         gM = FindObjectOfType<Game_Manager>();
@@ -52,6 +54,7 @@ public class Player : MonoBehaviour
                 SetCrossbowActive(!crossbowToggle);
             }
         }
+        EnemiesNearby();
     }
 
     public void SetCrossbowActive(bool state)
@@ -87,5 +90,21 @@ public class Player : MonoBehaviour
             tar.TriggeredByPlayer();
         }
         
+    }
+
+    public void EnemiesNearby()
+    {
+        int nearby = 0;
+        Enemy[] allEnemies = FindObjectsOfType<Enemy>();
+        for (int i = 0; i < allEnemies.Length; i++)
+        {
+            if (!allEnemies[i].dead && Vector3.Distance(transform.position, allEnemies[i].transform.position) <= enemyNearbyRange)
+            {
+                nearby++;
+            }
+        }
+        
+        //OVRInput.SetControllerVibration(1f, Mathf.Clamp((0.1f * nearby), 0, 1), OVRInput.Controller.RTouch);
+        //OVRInput.SetControllerVibration(1f, Mathf.Clamp((0.1f * nearby), 0, 1), OVRInput.Controller.LTouch);
     }
 }

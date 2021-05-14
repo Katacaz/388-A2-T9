@@ -90,8 +90,10 @@ public class Crossbow : MonoBehaviour
                 if (rTimer < reloadTime)
                 {
                     rTimer += Time.deltaTime;
+                    OVRInput.SetControllerVibration(1f, (rTimer / reloadTime), OVRInput.Controller.RTouch);
                 } else
                 {
+                    OVRInput.SetControllerVibration(0f, 0f, OVRInput.Controller.RTouch);
                     arrowLoaded = true;
                     rTimer = 0;
                     if (arrowLoadedSND != null)

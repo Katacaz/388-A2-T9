@@ -43,6 +43,9 @@ public class Enemy : MonoBehaviour
     public AudioClip deathSND;
     public AudioClip searchSND;
     public AudioClip alertSND;
+
+    private float alertSNDdelay = 5.0f;
+    private float alertSNDtimer;
     private void Awake()
     {
         eManager = FindObjectOfType<Enemy_Manager>();
@@ -103,6 +106,42 @@ public class Enemy : MonoBehaviour
         } else
         {
             alertTime = 0;
+        }
+
+        if (eManager.playerSpotted)
+        {
+            if (alertSNDtimer > alertSNDdelay)
+            {
+                alertSNDtimer = alertSNDdelay;
+            } else if (alertSNDtimer == alertSNDdelay)
+            {
+                alertSNDtimer -= Time.deltaTime;
+                OVRInput.SetControllerVibration(1f, 0.5f, OVRInput.Controller.RTouch);
+                OVRInput.SetControllerVibration(1f, 0.5f, OVRInput.Controller.LTouch);
+                if (alertSND != null)
+                {
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.clip = alertSND;
+                        audioSource.Play();
+                    }
+                }
+            } else if (alertSNDtimer > 0 && alertSNDtimer < alertSNDdelay)
+            {
+                alertSNDtimer -= Time.deltaTime;
+            } else
+            {
+                alertSNDtimer = 0;
+            }
+        } else
+        {
+            if (alertSNDtimer < alertSNDdelay)
+            {
+                alertSNDtimer += Time.deltaTime;
+            } else if (alertSNDtimer <= 0)
+            {
+                alertSNDtimer = alertSNDdelay;
+            }
         }
     }
 
@@ -166,11 +205,7 @@ public class Enemy : MonoBehaviour
     public void PlayerSpotted()
     {
         state = Enemy_Manager.EnemyState.Alert;
-        if (alertSND != null)
-        {
-            audioSource.clip = alertSND;
-            audioSource.Play();
-        }
+
         
     }
     public void PlayerCaught()
