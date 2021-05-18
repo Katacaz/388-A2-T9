@@ -2627,6 +2627,9 @@ MonoBehaviour:
   crossbowDesummonEffect: {fileID: 1762534389409604236, guid: df08cc09ffb7e604da375929a2f305a6, type: 3}
   rightHandGrabber: {fileID: 309006882}
   leftHandGrabber: {fileID: 1588630315998131506}
+  canSummonTeleporter: 0
+  tpTool: {fileID: 7840468537982942963}
+  enemyNearbyRange: 2
 --- !u!1 &4426078852081255795
 GameObject:
   m_ObjectHideFlags: 0

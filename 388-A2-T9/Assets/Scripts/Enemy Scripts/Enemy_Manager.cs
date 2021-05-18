@@ -11,7 +11,7 @@ public class Enemy_Manager : MonoBehaviour
 
     public List<Enemy> defeatedEnemies = new List<Enemy>();
 
-    public bool gameWin;
+    public bool levelFinished;
     public GameObject gameWinUI;
 
     public GameObject remainingEnemiesFrame;
@@ -27,6 +27,8 @@ public class Enemy_Manager : MonoBehaviour
 
     public bool playerSpotted;
 
+    LevelManager lM;
+   
     public enum EnemyState
     {
         Idle,
@@ -38,7 +40,7 @@ public class Enemy_Manager : MonoBehaviour
 
     private void Awake()
     {
-
+        lM = FindObjectOfType<LevelManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -55,10 +57,13 @@ public class Enemy_Manager : MonoBehaviour
             ToggleRemainingEnemies(!remainingEnemiesToggle);
         }
         UpdateRemainingEnemies();
-
-        if (AllEnemiesDefeated())
+        if (!levelFinished)
         {
-            SceneManager.LoadScene(sceneIndexToLoadOnWin);
+            if (AllEnemiesDefeated())
+            {
+                levelFinished = true;
+                lM.LevelCompleted();
+            }
         }
         gameWinUI.SetActive(playerSpotted);
         
@@ -95,7 +100,8 @@ public class Enemy_Manager : MonoBehaviour
 
     public void GameOver()
     {
+        levelFinished = true;
         Debug.Log("Player Spotted, GAME OVER");
-        SceneManager.LoadScene(sceneIndexToLoadOnLoss);
+        lM.LevelLost();
     }
 }

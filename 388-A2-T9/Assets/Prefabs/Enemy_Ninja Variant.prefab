@@ -111,6 +111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Ninja Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7906886972880221111, guid: 386cde45ddea8274695830b966c60a63, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f00e37134ead6cd4ab75e2dc8747e07b, type: 3}
     - target: {fileID: 8920313574684169545, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: alertSpeed
       value: 3

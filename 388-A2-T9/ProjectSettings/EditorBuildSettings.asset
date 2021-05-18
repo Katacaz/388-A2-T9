@@ -6,8 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/InitialisationScene.unity
+    guid: 7602390f11aeb804f87151041c9573d9
+  - enabled: 1
+    path: Assets/Scenes/Level Select.unity
+    guid: 8e2e36914b1912643869d3b8fbd3d35c
+  - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: f193f5a9ced65ff44a7ae3474ddbfcb2
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: f5f92986cb4fbca40b8c4f2ef8c7c2f2
+  - enabled: 1
+    path: Assets/Scenes/1-1_I_am_warrior.unity
+    guid: 3b24b017e6c44bb4198e98d295c9649c
+  - enabled: 1
+    path: Assets/Scenes/1-2_i_am_Ninja.unity
+    guid: e825aa5f3a65cf14f95c002d73cbff05
+  - enabled: 1
+    path: Assets/Scenes/1-3_i_am_Samurai.unity
+    guid: 58aad8a03c2fdd549967f12092d42730
   - enabled: 1
     path: Assets/Scenes/map_beta.unity
     guid: f6ecc9b5eb8bd154094de2f7d9781e26

@@ -18,11 +18,17 @@ public class Player : MonoBehaviour
     public OVRGrabber rightHandGrabber;
     public OVRGrabber leftHandGrabber;
 
+    [Header("TeleportRelated")]
+    public bool canSummonTeleporter;
+    private GameObject teleporterToolObject;
+    public Player_Teleporter tpTool;
+
     public float enemyNearbyRange = 2.0f;
 
     private void Awake()
     {
         gM = FindObjectOfType<Game_Manager>();
+        teleporterToolObject = tpTool.gameObject;
     }
 
     // Start is called before the first frame update
@@ -35,7 +41,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         canSummonCrossbow = gM.canSummonCrossbow;
+        canSummonTeleporter = gM.canUseTeleporter;
         crossbowObject.SetActive(crossbowToggle);
+
+        teleporterToolObject.SetActive(canSummonTeleporter);
 
         //Disable being able to grab stuff if the crossbow is active
         if (crossbowToggle)
@@ -53,6 +62,16 @@ public class Player : MonoBehaviour
             {
                 SetCrossbowActive(!crossbowToggle);
             }
+        }
+        //If the teleporter item is being used (Kunai has appeared), you cannot grab objects.
+        if (tpTool.canTeleport)
+        {
+            leftHandGrabber.enabled = false;
+            leftHandGrabber.GetComponent<SphereCollider>().enabled = false;
+        } else
+        {
+            leftHandGrabber.enabled = true;
+            leftHandGrabber.GetComponent<SphereCollider>().enabled = true;
         }
         EnemiesNearby();
     }

@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
+    Game_Manager gM;
     public int firstLevelIndex = 1;
+
+    private void Awake()
+    {
+        gM = FindObjectOfType<Game_Manager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +27,13 @@ public class TutorialManager : MonoBehaviour
 
     public void StartGame()
     {
+        TutorialCompleted();
+        gM.SaveGameProgress();
         SceneManager.LoadScene(firstLevelIndex);
+    }
+
+    public void TutorialCompleted()
+    {
+        gM.tutorialComplete = true;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Teleport_Point : MonoBehaviour
 {
+    private GameObject player;
 
     public List<Teleport_Point> connectedPoints = new List<Teleport_Point>();
 
@@ -11,16 +12,22 @@ public class Teleport_Point : MonoBehaviour
     private List<LineRenderer> lines = new List<LineRenderer>();
     public bool linePreviewActive;
 
-    public float range = 15.0f;
+    public GameObject particleFX;
+    public bool hideParticlesOutOfRange = true;
+
+    private float teleportRange;
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<Player>().gameObject;
         SetUpLines();
     }
 
     // Update is called once per frame
     void Update()
     {
+        teleportRange = player.GetComponent<Player>().tpTool.aimDistance;
+        UpdateParticleEnabled();
         if (connectedPoints.Count > 0)
         {
             foreach (LineRenderer l in lines)
@@ -59,9 +66,23 @@ public class Teleport_Point : MonoBehaviour
             }
         }
     }
-    private void OnDrawGizmosSelected()
+    public void UpdateParticleEnabled()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position, range);
+        if (hideParticlesOutOfRange)
+        {
+            if (PlayerDistanceFromPoint() <= teleportRange)
+            {
+                //Player in range of teleporter.
+                particleFX.SetActive(true);
+            } else
+            {
+                //Player not in range.
+                particleFX.SetActive(false);
+            }
+        }
+    }
+    public float PlayerDistanceFromPoint()
+    {
+        return Vector3.Distance(transform.position, player.transform.position);
     }
 }

@@ -37,24 +37,20 @@ public class Crossbow_Arrow : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (prev != Vector3.zero)
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward * arrowSpeed, out hit, arrowSpeed * Time.deltaTime, hitLayer, QueryTriggerInteraction.Collide))
         {
-            RaycastHit hit;
-            if (Physics.Linecast(prev, transform.position, out hit))
+            Arrow_Target tar = hit.collider.GetComponent<Arrow_Target>();
+            if (tar != null)
             {
-                Arrow_Target tar = hit.collider.GetComponent<Arrow_Target>();
-                if (tar != null)
-                {
-                    tar.TargetHit(damageAmount, hit.point);
-                    DestroyArrow();
-                }
-                if (hit.collider.gameObject.layer == hitLayer)
-                {
-                    DestroyArrow();
-                }
+                tar.TargetHit(damageAmount, hit.point);
+                DestroyArrow();
+            }
+            if (hit.collider.gameObject.layer == hitLayer)
+            {
+                DestroyArrow();
             }
         }
-        prev = transform.position;
     }
     public void SetTarget(Arrow_Target tar)
     {

@@ -58,3 +58,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canSummonCrossbow: 1
+  canUseTeleporter: 1
+  tutorialComplete: 0
+  levelStatus: 00000000
