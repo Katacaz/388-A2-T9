@@ -128,7 +128,7 @@ MonoBehaviour:
   parent: {fileID: 5857661943978526768}
   health: 1
   hitEffect: {fileID: 0}
-  destroyEffect: {fileID: 0}
+  destroyEffect: {fileID: 297663858123595319, guid: a00cc0673d9dc5c4497bf54449621341, type: 3}
   onHit:
     m_PersistentCalls:
       m_Calls: []

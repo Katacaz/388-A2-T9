@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   health: 1
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 8088464267485394076, guid: 4893cb9bfb2395c49974945344e3d4b7, type: 3}
   destroyEffect: {fileID: 0}
   onHit:
     m_PersistentCalls:
