@@ -86,17 +86,15 @@ public class Enemy_Detection : MonoBehaviour
         if (enemyBase.dead)
         {
             looking = false;
+        } else
+        {
+            SmokeScreenCheck();
         }
         if (looking)
         {
             //Move about the look target position
             if (playerSeen)
             {
-                /*Vector3 lookDir = (transform.position - enemyBase.playerObject.transform.position);
-                lookDir.x = 0;
-                lookDir.z = 0;
-                Quaternion rot = Quaternion.LookRotation(lookDir);
-                transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);*/
                 lookTarget.transform.position = enemyBase.playerObject.transform.position;
             } else
             {
@@ -112,7 +110,11 @@ public class Enemy_Detection : MonoBehaviour
                 lookDir.z = 0;
                 Quaternion rot = Quaternion.LookRotation(lookDir);
                 transform.rotation = Quaternion.Lerp(transform.rotation, rot, 5f * Time.deltaTime);*/
-                //lookTarget.transform.position = enemyBase.suspiciousArea;
+                if (Vector3.Distance(this.transform.position, enemyBase.suspiciousArea) > 3)
+                {
+                    lookTarget.transform.position = enemyBase.suspiciousArea;
+                }
+                
             }
             //Check if player is in range of viewing angle
             Vector3 playerDirection = (enemyBase.playerObject.transform.position - enemyHead.transform.position);
@@ -132,7 +134,11 @@ public class Enemy_Detection : MonoBehaviour
                         {
                             //Player hit with raycast
                             Debug.DrawLine(enemyHead.transform.position, enemyBase.playerObject.transform.position, Color.red);
-                            SawPlayer();
+                            if (!PlayerInSmoke())
+                            {
+                                SawPlayer();
+                            }
+                            
                             //Debug.Log("Player in range, in angle and seen");
                         }
                         else
@@ -174,7 +180,49 @@ public class Enemy_Detection : MonoBehaviour
         playerLastSeen = enemyBase.playerObject.transform.position;
         enemyBase.PlayerSpotted();
     }
+    public void SmokeScreenCheck()
+    {
+        bool inSmoke = false;
+        SmokeScreen[] smokescreens = FindObjectsOfType<SmokeScreen>();
+        for (int i = 0; i < smokescreens.Length; i++)
+        {
+            if (Vector3.Distance(this.transform.position, smokescreens[i].transform.position) <= smokescreens[i].smokeRadius)
+            {
+                //This enemy is within range of the smoke screen
+                if (smokescreens[i].smokeActivated)
+                {
+                    //Smoke was activated
+                    inSmoke = true;
+                }
+            }
+        }
 
+        if (inSmoke)
+        {
+            looking = false;
+        } else
+        {
+            looking = true;
+        }
+    }
+    public bool PlayerInSmoke()
+    {
+        bool playerInSmoke = false;
+        SmokeScreen[] smokescreens = FindObjectsOfType<SmokeScreen>();
+        for (int i = 0; i < smokescreens.Length; i++)
+        {
+            if (Vector3.Distance(enemyBase.playerObject.transform.position, smokescreens[i].transform.position) <= smokescreens[i].smokeRadius)
+            {
+                //This enemy is within range of the smoke screen
+                if (smokescreens[i].smokeActivated)
+                {
+                    //Smoke was activated
+                    playerInSmoke = true;
+                }
+            }
+        }
+        return playerInSmoke;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
@@ -182,5 +230,5 @@ public class Enemy_Detection : MonoBehaviour
         Gizmos.DrawLine(enemyHead.transform.position, (enemyHead.transform.position + enemyHead.transform.forward * detectionRange));
         //Gizmos.color = Color.green;
         
-    }
+    }    
 }

@@ -60,4 +60,4 @@ MonoBehaviour:
   canSummonCrossbow: 1
   canUseTeleporter: 1
   tutorialComplete: 0
-  levelStatus: 00000000
+  levelStatus: 0000000000

@@ -154,7 +154,7 @@ MonoBehaviour:
   tpButton: 268435456
   tpButtonTouch: 4096
   teleportButton: 4
-  startTeleportButton: 5
+  startTeleportButton: 2
   teleportLockedEffectPrefab: {fileID: 4912109753803501658, guid: 7a2edc020affefb41bf7adf47b0e8df2, type: 3}
   teleportToEffectPrefab: {fileID: 8357322781079688712, guid: a67ee0fbe19d250468025b13579735f1, type: 3}
   teleportFromEffectPrefab: {fileID: 1729936623140137861, guid: a8ff1d707b3191c47a713da1da4c0d66, type: 3}
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   defeatedEnemies: []
-  gameWin: 0
+  levelFinished: 0
   gameWinUI: {fileID: 4426078850082864789}
   remainingEnemiesFrame: {fileID: 4860895074117691941}
   remainingEnemiesToggle: 1

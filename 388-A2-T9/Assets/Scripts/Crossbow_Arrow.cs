@@ -44,12 +44,9 @@ public class Crossbow_Arrow : MonoBehaviour
             if (tar != null)
             {
                 tar.TargetHit(damageAmount, hit.point);
-                DestroyArrow();
+                
             }
-            if (hit.collider.gameObject.layer == hitLayer)
-            {
-                DestroyArrow();
-            }
+            DestroyArrow();
         }
     }
     public void SetTarget(Arrow_Target tar)
@@ -63,22 +60,6 @@ public class Crossbow_Arrow : MonoBehaviour
     public void Move()
     {
         transform.position += this.transform.forward * arrowSpeed * Time.deltaTime;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        //Debug.Log("Arrow Collided with " + other.transform.name);
-        //Check if 
-        Arrow_Target tar = other.GetComponent<Arrow_Target>();
-        if (tar != null)
-        {
-            //Target hit
-            tar.TargetHit(damageAmount, this.GetComponent<SphereCollider>().center);
-            DestroyArrow();
-        }
-        if (other.gameObject.layer == hitLayer)
-        {
-            DestroyArrow();
-        }
     }
 
     public void DestroyArrow()

@@ -57,6 +57,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   thisDestroysObject: 1
+  indestructable: 0
+  hitFromDirection: {x: 0, y: 0, z: 0}
 --- !u!65 &6262700829724972497
 BoxCollider:
   m_ObjectHideFlags: 0

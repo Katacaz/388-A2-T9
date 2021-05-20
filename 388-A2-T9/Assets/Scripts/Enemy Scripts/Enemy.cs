@@ -185,20 +185,24 @@ public class Enemy : MonoBehaviour
 
     public void StartSearch(Vector3 searchArea, float suspicionAmount)
     {
-        if (willPatrol)
+        if (!dead)
         {
-            ChangeSuspicion(suspicionAmount);
-            suspiciousArea = searchArea;
+            if (willPatrol)
+            {
+                ChangeSuspicion(suspicionAmount);
+                suspiciousArea = searchArea;
 
-            state = Enemy_Manager.EnemyState.Search;
-        } else
-        {
-            AlertEnemiesArrowDirection(searchArea, suspicionAmount);
-        }
-        if (searchSND != null)
-        {
-            audioSource.clip = searchSND;
-            audioSource.Play();
+                state = Enemy_Manager.EnemyState.Search;
+            }
+            else
+            {
+                AlertEnemiesArrowDirection(searchArea, suspicionAmount);
+            }
+            if (searchSND != null)
+            {
+                audioSource.clip = searchSND;
+                audioSource.Play();
+            }
         }
     }
 

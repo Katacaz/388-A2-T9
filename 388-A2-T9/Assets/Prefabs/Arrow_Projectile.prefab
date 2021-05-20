@@ -149,13 +149,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpeed: 20
-  deathTime: 10
+  deathTime: 5
   destroyEffect: {fileID: 7321615143739912102, guid: 3447da46cedf6ef4582cb27f455d1fb4, type: 3}
   damageAmount: 1
   target: {fileID: 0}
   hitLayer:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 768
 --- !u!135 &6162662733982540983
 SphereCollider:
   m_ObjectHideFlags: 0
