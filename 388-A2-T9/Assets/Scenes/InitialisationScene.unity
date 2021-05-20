@@ -22053,7 +22053,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3892946112534248019, guid: ac093329e61a68341a48cc61802bb4cc, type: 3}
       propertyPath: canUseTeleporter
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892946112534248021, guid: ac093329e61a68341a48cc61802bb4cc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac093329e61a68341a48cc61802bb4cc, type: 3}

@@ -32,6 +32,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_FragilePots.unity
     guid: 42d48a60f76409d41a6efe592c4f15dd
+  - enabled: 1
+    path: Assets/Scenes/2-1_Quick_Draw.unity
+    guid: 65e6b7f6b627c7a4bac2440d09fab89c
+  - enabled: 1
+    path: Assets/Scenes/2-2_together_we_are_Strong.unity
+    guid: 78f6031432867b043be56e6eaa3cf21e
+  - enabled: 1
+    path: Assets/Scenes/2-3_patrol_team.unity
+    guid: 417462ee8b887344bb2e69e90d6c62fb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 145906e6cce95bd45aeddf5b81df7a7e, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ed2a8fe33aa6bf34a89821f0f523c5a6, type: 2}
