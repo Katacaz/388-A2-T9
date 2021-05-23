@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.014368204, g: 0.020220283, b: 0.1322852, a: 1}
+  m_IndirectSpecularColor: {r: 0.013052054, g: 0.018121757, b: 0.12648746, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3475,7 +3475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106927052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.58, y: 3.39, z: -6.7}
+  m_LocalPosition: {x: 51.211, y: 3.39, z: -6.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2128660374}
@@ -8627,7 +8627,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7752912935327698637, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: willPatrol
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7752912935327698642, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: m_RootOrder
@@ -9627,7 +9627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375640046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 74.04, y: 3.39, z: 20.2}
+  m_LocalPosition: {x: 64.28, y: 3.39, z: -1.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2128660374}
@@ -20717,7 +20717,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7752912935327698637, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: willPatrol
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7752912935327698642, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: m_RootOrder
@@ -31146,7 +31146,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7752912935327698637, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: willPatrol
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7752912935327698642, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: m_RootOrder
@@ -39709,7 +39709,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.002491996, g: 0.47629887, b: 0.5283019, a: 1}
-  m_Intensity: 2
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
