@@ -30264,7 +30264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3892946112534248016, guid: ac093329e61a68341a48cc61802bb4cc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3892946112534248018, guid: ac093329e61a68341a48cc61802bb4cc, type: 3}
       propertyPath: m_RootOrder
@@ -49933,6 +49933,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 367033193, guid: 48cb74d1b8db4f145bb39cadf9feca02, type: 3}
+      propertyPath: crossbowToggle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1655259693, guid: 48cb74d1b8db4f145bb39cadf9feca02, type: 3}
       propertyPath: m_RootOrder
       value: 4

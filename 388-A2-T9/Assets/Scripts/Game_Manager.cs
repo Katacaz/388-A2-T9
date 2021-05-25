@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class Game_Manager : MonoBehaviour
 {
-
+    private static Game_Manager instance;
+    public static Game_Manager Instance {  get { return instance; } }
     public bool canSummonCrossbow;
     public bool canUseTeleporter;
 
     public bool tutorialComplete;
     [Tooltip("Array of levels, bool representing if completed or not")]
     public bool[] levelStatus;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        } 
+        else
+        {
+            instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public int gameOverSceneID = 1;
     private void Awake()
     {
-        gM = FindObjectOfType<Game_Manager>();
+        gM = Game_Manager.Instance;
     }
     // Start is called before the first frame update
     void Start()
@@ -28,8 +28,10 @@ public class LevelManager : MonoBehaviour
 
     public void LevelCompleted()
     {
-        gM.levelStatus[levelID] = true;
-        gM.SaveGameProgress();
+        Game_Manager.Instance.levelStatus[levelID] = true;
+        //gM.levelStatus[levelID] = true;
+        Game_Manager.Instance.SaveGameProgress();
+        //gM.SaveGameProgress();
         SceneManager.LoadScene(levelSelectSceneID);
     }
     public void LevelLost()

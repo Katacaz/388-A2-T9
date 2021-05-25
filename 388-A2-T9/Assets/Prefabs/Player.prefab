@@ -144,7 +144,7 @@ MonoBehaviour:
   teleportProp: {fileID: 5757520991794115116}
   teleportLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   aiming: 0
   aimDistance: 20
   aimLine: {fileID: 3456385091236418560}
@@ -2863,7 +2863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8090654249569744189
 RectTransform:
   m_ObjectHideFlags: 0

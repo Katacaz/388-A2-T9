@@ -35,7 +35,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
-        gM = FindObjectOfType<Game_Manager>();
+        gM = Game_Manager.Instance;
     }
     // Start is called before the first frame update
     void Start()
@@ -130,13 +130,15 @@ public class TutorialManager : MonoBehaviour
     public void StartGame()
     {
         TutorialCompleted();
-        gM.SaveGameProgress();
+        //gM.SaveGameProgress();
+        Game_Manager.Instance.SaveGameProgress();
         SceneManager.LoadScene(firstLevelIndex);
     }
 
     public void TutorialCompleted()
     {
-        gM.tutorialComplete = true;
+        Game_Manager.Instance.tutorialComplete = true;
+        //gM.tutorialComplete = true;
     }
 
     public void ProgressTutorial(int stage)

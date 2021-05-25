@@ -30,10 +30,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54385636fd4965e448dcb70b9118dc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
-  mR: {fileID: 0}
   isHighlighted: 0
   highlightObject: {fileID: 3057873843663868337}
+  useOutline: 1
 --- !u!1 &5857661943978526768
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8383440344916568485}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Destructable_Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 159512, guid: 7429754a23785f040b4ff31abd19014e, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 459904, guid: 7429754a23785f040b4ff31abd19014e, type: 3}
       propertyPath: m_RootOrder
@@ -287,9 +286,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1501315946104812221, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3915283188934330251, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
       propertyPath: m_Name
       value: HighlightObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915283188934330251, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147151507892610276, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8770955428971973203, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
       propertyPath: m_Sprite

@@ -79,42 +79,29 @@ public class Crossbow : MonoBehaviour
     private void ReloadCheck()
     {
         reloadTimerFill.gameObject.SetActive(!arrowLoaded);
-        if (ControllerManager.ButtonPressCheck(reloadBtn))
+        if (!arrowLoaded)
         {
-            if (!arrowLoaded)
+            if (autoReload)
             {
-                if (autoReload)
-                {
-                    rTimer = reloadTime;
-                }
-                if (rTimer < reloadTime)
-                {
-                    rTimer += Time.deltaTime;
-                    OVRInput.SetControllerVibration(1f, (rTimer / reloadTime), OVRInput.Controller.RTouch);
-                } else
-                {
-                    OVRInput.SetControllerVibration(0f, 0f, OVRInput.Controller.RTouch);
-                    arrowLoaded = true;
-                    rTimer = 0;
-                    if (arrowLoadedSND != null)
-                    {
-                        audioSource.clip = arrowLoadedSND;
-                        audioSource.Play();
-                    }
-                }
-                
+                rTimer = reloadTime;
             }
-        }
-        if (ControllerManager.ButtonUpCheck(reloadBtn))
-        {
-            if (!arrowLoaded)
+            if (rTimer < reloadTime)
             {
-                if (rTimer > 0)
+                rTimer += Time.deltaTime;
+                OVRInput.SetControllerVibration(1f, (rTimer / reloadTime), OVRInput.Controller.RTouch);
+            }
+            else
+            {
+                //OVRInput.SetControllerVibration(0f, 0f, OVRInput.Controller.RTouch);
+                arrowLoaded = true;
+                rTimer = 0;
+                if (arrowLoadedSND != null)
                 {
-                    rTimer = 0;
-                    //Debug.Log("RELOAD INTERUPTED");
+                    audioSource.clip = arrowLoadedSND;
+                    audioSource.Play();
                 }
             }
+
         }
         reloadTimerFill.fillAmount = rTimer / reloadTime;
     }
@@ -220,7 +207,7 @@ public class Crossbow : MonoBehaviour
         for (int i = 0; i < highlightables.Length; i++)
         {
             //Check the distance to the object, if within the highlight range it will highlight it
-            if (Vector3.Distance(transform.position, highlightables[i].transform.position) < highlightRange * 2)
+            if (Vector3.Distance(transform.position, highlightables[i].transform.position) < highlightRange * 5)
             {
                 highlightables[i].StartHighlight();
             }

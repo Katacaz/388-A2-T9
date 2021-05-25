@@ -25,9 +25,25 @@ public class Player : MonoBehaviour
 
     public float enemyNearbyRange = 2.0f;
 
+    [Header("Grapple Tool stuff")]
+    public float grappleSpeed = 5.0f;
+    public GameObject leftGrappleObjectPrefab;
+    public GameObject leftGrappleOrigin;
+    public LineRenderer leftGrappleLine;
+    private float leftGrappleDistance;
+    private bool leftGrappleActive;
+    private bool leftGrappleGrabbedObject;
+    public GameObject rightGrappleObjectPrefab;
+    public GameObject rightGrappleOrigin;
+    public LineRenderer rightGrappleLine;
+    private float rightGrappleDistance;
+    private bool rightGrappleActive;
+    private bool rightGrappleGrabbedObject;
+
+
     private void Awake()
     {
-        gM = FindObjectOfType<Game_Manager>();
+        gM = Game_Manager.Instance;
         teleporterToolObject = tpTool.gameObject;
     }
 
@@ -40,8 +56,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canSummonCrossbow = gM.canSummonCrossbow;
-        canSummonTeleporter = gM.canUseTeleporter;
+        canSummonCrossbow = Game_Manager.Instance.canSummonCrossbow;
+        canSummonTeleporter = Game_Manager.Instance.canUseTeleporter;
+        //canSummonCrossbow = gM.canSummonCrossbow;
+        //canSummonTeleporter = gM.canUseTeleporter;
         crossbowObject.SetActive(crossbowToggle);
 
         teleporterToolObject.SetActive(canSummonTeleporter);
@@ -74,6 +92,44 @@ public class Player : MonoBehaviour
             leftHandGrabber.GetComponent<SphereCollider>().enabled = true;
         }
         EnemiesNearby();
+
+        //If attempting to grab with left hand
+        if (leftHandGrabber.enabled)
+        {
+            if (OVRInput.Get(OVRInput.RawButton.LHandTrigger))
+            {
+                if (leftHandGrabber.grabbedObject == null)
+                {
+                    //Debug.Log("Tried Grabbing, got nothing.");
+                    if (!leftGrappleGrabbedObject)
+                    {
+                        LeftGrappleShoot();
+                    } 
+                    else
+                    {
+                        LeftGrappleRetract();
+                    }
+                }
+                else
+                {
+                    //Debug.Log("GOT SOMETHING");
+                }
+            }
+        }
+        if (rightHandGrabber.enabled)
+        {
+            if (OVRInput.Get(OVRInput.RawButton.RHandTrigger))
+            {
+                if (rightHandGrabber.grabbedObject == null)
+                {
+                    // Didn't grab anything with right hand
+                } else
+                {
+                    //Grabbed something with right hand.
+                }
+            }
+        }
+
     }
 
     public void SetCrossbowActive(bool state)
@@ -125,5 +181,14 @@ public class Player : MonoBehaviour
         
         //OVRInput.SetControllerVibration(1f, Mathf.Clamp((0.1f * nearby), 0, 1), OVRInput.Controller.RTouch);
         //OVRInput.SetControllerVibration(1f, Mathf.Clamp((0.1f * nearby), 0, 1), OVRInput.Controller.LTouch);
+    }
+
+    public void LeftGrappleShoot()
+    {
+
+    }
+    public void LeftGrappleRetract()
+    {
+
     }
 }

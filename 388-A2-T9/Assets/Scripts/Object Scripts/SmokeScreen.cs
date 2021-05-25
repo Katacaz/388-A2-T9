@@ -8,6 +8,7 @@ public class SmokeScreen : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip smokeSND;
+    public GameObject smokeCollider;
 
     public float smokeDuration = 5f;
     private float timer;
@@ -49,6 +50,7 @@ public class SmokeScreen : MonoBehaviour
         smokeDuration = duration;
         smokeActivated = true;
         SetParticleSystemsTo(true);
+        smokeCollider.SetActive(true);
     }
     public void StopSmoke()
     {
@@ -56,6 +58,7 @@ public class SmokeScreen : MonoBehaviour
         smokeActivated = false;
         timer = 0;
         SetParticleSystemsTo(false);
+        smokeCollider.SetActive(false);
     }
     private void SetParticleSystemsTo(bool state)
     {

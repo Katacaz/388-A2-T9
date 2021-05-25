@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3309980576432202093}
   - component: {fileID: 626170176417334639}
   - component: {fileID: 1606038267713666166}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SM_Prop_Bell_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,10 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54385636fd4965e448dcb70b9118dc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
-  mR: {fileID: 0}
   isHighlighted: 0
   highlightObject: {fileID: 3389004539095077626}
+  useOutline: 1
 --- !u!1 &3245590651924411733
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +304,7 @@ GameObject:
   - component: {fileID: 3245590653570080041}
   - component: {fileID: 2800126593641766096}
   - component: {fileID: 7730830635350645125}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Target_Bell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,9 +411,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1501315946104812221, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3915283188934330251, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
       propertyPath: m_Name
       value: HighlightObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3915283188934330251, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147151507892610276, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8770955428971973203, guid: 315bb4eabc12c414588e8c4d751c620c, type: 3}
       propertyPath: m_Sprite

@@ -50,7 +50,7 @@ public class Player_Teleporter : MonoBehaviour
     {
         if (!canTeleport)
         {
-            if (ControllerManager.ButtonPressCheck(startTeleportButton))
+            if (ControllerManager.ButtonDownCheck(startTeleportButton))
             {
                 canTeleport = true;
             }

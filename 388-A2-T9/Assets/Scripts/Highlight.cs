@@ -4,16 +4,12 @@ using UnityEngine;
 [RequireComponent(typeof(Outline))]
 public class Highlight : MonoBehaviour
 {
-    //private Material defaultMat;
-    //public Material highlightMat;
-
-    public SkinnedMeshRenderer mesh;
-    public MeshRenderer mR;
-
     public bool isHighlighted;
 
     public GameObject highlightObject;
     private Outline outline;
+    [Tooltip("Disable this if the highlight just needs to enable/disable objects and not actually highlight")]
+    public bool useOutline = true;
     private void Awake()
     {
         outline = GetComponent<Outline>();
@@ -21,20 +17,19 @@ public class Highlight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (mesh != null)
-        {
-            //defaultMat = mesh.material;
-        }
-        else if (mR != null)
-        {
-            //defaultMat = mR.material;
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        outline.enabled = isHighlighted;
+        if (useOutline)
+        {
+            outline.enabled = isHighlighted;
+        } else
+        {
+            outline.enabled = false;
+        }
         if (highlightObject != null)
         {
             highlightObject.SetActive(isHighlighted);
@@ -49,15 +44,5 @@ public class Highlight : MonoBehaviour
     {
         //ChangeMaterial(defaultMat);
         isHighlighted = false;
-    }
-    public void ChangeMaterial(Material mat)
-    {
-        if (mesh != null)
-        {
-            mesh.material = mat;
-        } else if (mR != null)
-        {
-            mR.material = mat;
-        }
     }
 }

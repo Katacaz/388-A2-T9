@@ -9,7 +9,7 @@ public class LevelSelectManager : MonoBehaviour
 
     private void Awake()
     {
-        gM = FindObjectOfType<Game_Manager>();
+        gM = Game_Manager.Instance;
     }
     // Start is called before the first frame update
     void Start()
