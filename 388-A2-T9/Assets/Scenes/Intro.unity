@@ -10374,15 +10374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54385636fd4965e448dcb70b9118dc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
-  mR: {fileID: 519008947}
   isHighlighted: 0
   highlightObject: {fileID: 0}
---- !u!23 &519008947 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6262700830483699103, guid: f4fe3ff9b8f5d83478d91303d4c1c3db, type: 3}
-  m_PrefabInstance: {fileID: 299967185}
-  m_PrefabAsset: {fileID: 0}
+  useOutline: 1
 --- !u!1001 &521407688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11113,7 +11107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8383440344916568485, guid: 4b2495ae8b515fd4cbd5bb8d72565f20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.8
+      value: 58.29
       objectReference: {fileID: 0}
     - target: {fileID: 8383440344916568485, guid: 4b2495ae8b515fd4cbd5bb8d72565f20, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11121,7 +11115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8383440344916568485, guid: 4b2495ae8b515fd4cbd5bb8d72565f20, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 88.09
+      value: 87.39
       objectReference: {fileID: 0}
     - target: {fileID: 8383440344916568485, guid: 4b2495ae8b515fd4cbd5bb8d72565f20, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26162,11 +26156,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 149540, guid: 7a8ef51eefd672a469bf4bba34ead8bb, type: 3}
   m_PrefabInstance: {fileID: 1220685740}
   m_PrefabAsset: {fileID: 0}
---- !u!137 &1220685743 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13792914, guid: 7a8ef51eefd672a469bf4bba34ead8bb, type: 3}
-  m_PrefabInstance: {fileID: 1220685740}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1220685744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26179,10 +26168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54385636fd4965e448dcb70b9118dc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 1220685743}
-  mR: {fileID: 0}
   isHighlighted: 0
   highlightObject: {fileID: 0}
+  useOutline: 1
 --- !u!114 &1220685745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26800,7 +26788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7752912935327698642, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75.43
+      value: 66.99
       objectReference: {fileID: 0}
     - target: {fileID: 7752912935327698642, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26808,7 +26796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7752912935327698642, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 86.46
+      value: 85.01
       objectReference: {fileID: 0}
     - target: {fileID: 7752912935327698642, guid: 386cde45ddea8274695830b966c60a63, type: 3}
       propertyPath: m_LocalRotation.w
@@ -26879,15 +26867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54385636fd4965e448dcb70b9118dc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
-  mR: {fileID: 1249283056}
   isHighlighted: 0
   highlightObject: {fileID: 0}
---- !u!23 &1249283056 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6262700830483699103, guid: f4fe3ff9b8f5d83478d91303d4c1c3db, type: 3}
-  m_PrefabInstance: {fileID: 1328606281}
-  m_PrefabAsset: {fileID: 0}
+  useOutline: 1
 --- !u!1001 &1250389366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34053,15 +34035,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54385636fd4965e448dcb70b9118dc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 1561511700}
-  mR: {fileID: 0}
   isHighlighted: 0
   highlightObject: {fileID: 0}
---- !u!137 &1561511700 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 13792914, guid: 7a8ef51eefd672a469bf4bba34ead8bb, type: 3}
-  m_PrefabInstance: {fileID: 923058720}
-  m_PrefabAsset: {fileID: 0}
+  useOutline: 1
 --- !u!1001 &1573602046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46549,15 +46525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54385636fd4965e448dcb70b9118dc9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
-  mR: {fileID: 1979084884}
   isHighlighted: 0
   highlightObject: {fileID: 0}
---- !u!23 &1979084884 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6262700830483699103, guid: f4fe3ff9b8f5d83478d91303d4c1c3db, type: 3}
-  m_PrefabInstance: {fileID: 1837334258}
-  m_PrefabAsset: {fileID: 0}
+  useOutline: 1
 --- !u!1001 &1979901273
 PrefabInstance:
   m_ObjectHideFlags: 0
