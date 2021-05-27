@@ -26,7 +26,6 @@ public class Crossbow_Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
         if (dTimer < deathTime)
         {
             dTimer += Time.deltaTime;
@@ -37,9 +36,11 @@ public class Crossbow_Arrow : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Move();
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward * arrowSpeed, out hit, arrowSpeed * Time.deltaTime, hitLayer, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, arrowSpeed * Time.deltaTime, hitLayer, QueryTriggerInteraction.Collide))
         {
+            
             Arrow_Target tar = hit.collider.GetComponent<Arrow_Target>();
             if (tar != null)
             {

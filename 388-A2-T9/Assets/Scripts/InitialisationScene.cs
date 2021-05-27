@@ -12,12 +12,12 @@ public class InitialisationScene : MonoBehaviour
 
     private void Awake()
     {
-        gM = FindObjectOfType<Game_Manager>();
+        gM = Game_Manager.Instance;
     }
     // Start is called before the first frame update
     void Start()
     {
-        gM.LoadGameProgress();
+        Game_Manager.Instance.LoadGameProgress();
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ public class Game_Manager : MonoBehaviour
     public bool tutorialComplete;
     [Tooltip("Array of levels, bool representing if completed or not")]
     public bool[] levelStatus;
+    public float[] bestLevelTimes;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class Game_Manager : MonoBehaviour
         {
             instance = this;
         }
+        Game_Manager.Instance.LoadGameProgress();
     }
     // Start is called before the first frame update
     void Start()
@@ -58,6 +60,7 @@ public class Game_Manager : MonoBehaviour
         for (int i = 0; i < levelStatus.Length; i++)
         {
             levelStatus[i] = data.levelsComplete[i];
+            bestLevelTimes[i] = data.bestLevelTimes[i];
         }
     }
 }

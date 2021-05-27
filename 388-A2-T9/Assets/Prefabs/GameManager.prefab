@@ -61,3 +61,12 @@ MonoBehaviour:
   canUseTeleporter: 1
   tutorialComplete: 0
   levelStatus: 0000000000000000
+  bestLevelTimes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0

@@ -88,7 +88,7 @@ public class Crossbow : MonoBehaviour
             if (rTimer < reloadTime)
             {
                 rTimer += Time.deltaTime;
-                OVRInput.SetControllerVibration(1f, (rTimer / reloadTime), OVRInput.Controller.RTouch);
+                //OVRInput.SetControllerVibration(1f, (rTimer / reloadTime), OVRInput.Controller.RTouch);
             }
             else
             {
@@ -107,6 +107,7 @@ public class Crossbow : MonoBehaviour
     }
     public void ShootArrow()
     {
+        OVRInput.SetControllerVibration(0.5f, 0.5f, OVRInput.Controller.RTouch);
         arrowLoaded = false;
         GameObject arrow = Instantiate(arrowPrefab);
         arrow.transform.position = arrowSpawnPos.position;

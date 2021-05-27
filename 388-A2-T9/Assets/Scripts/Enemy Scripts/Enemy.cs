@@ -148,6 +148,7 @@ public class Enemy : MonoBehaviour
     public void EnemyHit()
     {
         enemyAnim.SetTrigger("Hit");
+        StartSearch(transform.position + targetInfo.hitFromDirection * 10f, 100f);
     }
     public void EnemyDeath()
     {
@@ -166,7 +167,7 @@ public class Enemy : MonoBehaviour
             {
                 eManager.defeatedEnemies.Add(this);
             }
-            AlertEnemiesArrowDirection(transform.position + targetInfo.hitFromDirection * 10f, 100);
+            AlertEnemiesArrowDirection(transform.position + targetInfo.hitFromDirection * 10f, 100f);
             eManager.playerSpotted = false;
         }
     }
@@ -189,9 +190,16 @@ public class Enemy : MonoBehaviour
         {
             if (willPatrol)
             {
-                ChangeSuspicion(suspicionAmount);
-                suspiciousArea = searchArea;
+                //If blinded they will not be given the area to look, but still become suspicious
+                if (GetComponent<Enemy_Detection>().looking)
+                {
+                    suspiciousArea = searchArea;
+                } else
+                {
+                    suspiciousArea = this.transform.position;
+                }
 
+                ChangeSuspicion(suspicionAmount);
                 state = Enemy_Manager.EnemyState.Search;
             }
             else
