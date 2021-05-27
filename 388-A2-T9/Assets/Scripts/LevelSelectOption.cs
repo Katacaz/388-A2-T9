@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
 public class LevelSelectOption : MonoBehaviour
 {
     Game_Manager gM;
+    LevelSelectManager lsM;
     public int levelID;
     public int levelSceneIndex;
     public bool levelUnlocked;
@@ -21,6 +21,7 @@ public class LevelSelectOption : MonoBehaviour
     private void Awake()
     {
         gM = Game_Manager.Instance;
+        lsM = FindObjectOfType<LevelSelectManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -76,7 +77,7 @@ public class LevelSelectOption : MonoBehaviour
 
     public void StartLevel()
     {
-        SceneManager.LoadScene(levelSceneIndex);
+        lsM.LoadLevel(levelSceneIndex);
     }
 
     string FormatTime(float time)

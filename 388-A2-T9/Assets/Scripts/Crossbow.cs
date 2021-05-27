@@ -108,6 +108,7 @@ public class Crossbow : MonoBehaviour
     public void ShootArrow()
     {
         OVRInput.SetControllerVibration(0.5f, 0.5f, OVRInput.Controller.RTouch);
+        OVRInput.SetControllerVibration(0f, 0f, OVRInput.Controller.RTouch);
         arrowLoaded = false;
         GameObject arrow = Instantiate(arrowPrefab);
         arrow.transform.position = arrowSpawnPos.position;

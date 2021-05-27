@@ -28,6 +28,8 @@ public class Enemy_Manager : MonoBehaviour
     public bool playerSpotted;
 
     LevelManager lM;
+
+    Audio_Manager aM;
    
     public enum EnemyState
     {
@@ -41,6 +43,7 @@ public class Enemy_Manager : MonoBehaviour
     private void Awake()
     {
         lM = FindObjectOfType<LevelManager>();
+        aM = Audio_Manager.Instance;
     }
     // Start is called before the first frame update
     void Start()
@@ -66,7 +69,20 @@ public class Enemy_Manager : MonoBehaviour
             }
         }
         gameWinUI.SetActive(playerSpotted);
-        
+
+        if (playerSpotted)
+        {
+            if (Audio_Manager.Instance.playingMainAudio)
+            {
+                Audio_Manager.Instance.EnterCombat();
+            }
+        } else
+        {
+            if (!Audio_Manager.Instance.playingMainAudio)
+            {
+                Audio_Manager.Instance.LeaveCombat();
+            }
+        }
     }
     public void ToggleRemainingEnemies(bool state)
     {

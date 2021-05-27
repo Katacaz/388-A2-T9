@@ -1090,3 +1090,6 @@ MonoBehaviour:
   bestLevelTimeText: {fileID: 6691147621383666972}
   levelTime: 0
   bestTime: 0
+  gameWinFanfareAudio: {fileID: 8300000, guid: 12da25555b25ae445b57916e63a06bdf, type: 3}
+  customLevelMainMusic: {fileID: 8300000, guid: 77821d538a0c3cb47b926288fc4013f3, type: 3}
+  customCombatMusic: {fileID: 0}

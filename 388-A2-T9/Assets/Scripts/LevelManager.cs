@@ -27,6 +27,9 @@ public class LevelManager : MonoBehaviour
     private bool timerActive;
     public float bestTime;
 
+    public AudioClip gameWinFanfareAudio;
+    public AudioClip customLevelMainMusic;
+    public AudioClip customCombatMusic;
     private void Awake()
     {
         gM = Game_Manager.Instance;
@@ -63,11 +66,21 @@ public class LevelManager : MonoBehaviour
     {
         timerActive = true;
         bestTime = Game_Manager.Instance.bestLevelTimes[levelID];
+
+        if ( customLevelMainMusic != null)
+        {
+            Audio_Manager.Instance.ChangeMainMusic(customLevelMainMusic);
+        }
+        if (customCombatMusic != null)
+        {
+            Audio_Manager.Instance.ChangeCombatMusic(customCombatMusic);
+        }
     }
     public void LevelCompleted()
     {
         timerActive = false;
         levelCompleted = true;
+        Audio_Manager.Instance.PlayFanfare(gameWinFanfareAudio);
         //Compare scores
         if (levelTime < bestTime || bestTime == 0)
         {

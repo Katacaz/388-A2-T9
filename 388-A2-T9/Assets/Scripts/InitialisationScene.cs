@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class InitialisationScene : MonoBehaviour
 {
     Game_Manager gM;
-    public OVRInput.RawButton startButton;
+    //public OVRInput.RawButton startButton;
+    public ControllerManager.Buttons startButton = ControllerManager.Buttons.B;
     public int levelSelectSceneID;
     public int tutorialSceneID;
 
@@ -23,7 +24,7 @@ public class InitialisationScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.Get(startButton))
+        if (ControllerManager.ButtonPressCheck(startButton))
         {
             StartGame();
         }
@@ -31,7 +32,8 @@ public class InitialisationScene : MonoBehaviour
 
     public void StartGame()
     {
-        if (!gM.tutorialComplete)
+        Debug.Log("Starting Game");
+        if (!Game_Manager.Instance.tutorialComplete)
         {
             //First time starting - run tutorial
             SceneManager.LoadScene(tutorialSceneID);
