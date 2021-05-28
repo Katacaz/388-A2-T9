@@ -4875,7 +4875,7 @@ MonoBehaviour:
   suspicion: 0
   suspiciousArea: {x: 0, y: 0, z: 0}
   alertProgress: 0
-  alertPerSecond: 10
+  alertPerSecond: 50
   playerObject: {fileID: 0}
   alertTimer: 15
   alertTime: 0
