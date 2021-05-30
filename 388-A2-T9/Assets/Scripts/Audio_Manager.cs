@@ -21,6 +21,8 @@ public class Audio_Manager : MonoBehaviour
     public float audioMaxVolume = 1.0f;
 
     float fadeRate = 0.8f;
+
+    public bool playerSpotted;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -41,7 +43,22 @@ public class Audio_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerSpotted)
+        {
+            if (playingMainAudio)
+            {
+                StopAllCoroutines();
+                EnterCombat();
+            }
+        }
+        else
+        {
+            if (!playingMainAudio)
+            {
+                StopAllCoroutines();
+                LeaveCombat();
+            }
+        }
     }
     void InitialSetup()
     {

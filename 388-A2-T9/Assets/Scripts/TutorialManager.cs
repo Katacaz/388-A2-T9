@@ -12,6 +12,7 @@ public class TutorialManager : MonoBehaviour
     public int tutorialProgress = 0;
     private bool beginNextStep;
 
+    public GameObject speechCanvas;
     public TextMeshProUGUI speechBubbleText;
     [Header("Step Text")]
     [TextArea]
@@ -28,10 +29,19 @@ public class TutorialManager : MonoBehaviour
     public string endTutorialMessage = "[Message for finishing the tutorial]";
     [TextArea]
     public string reloadMessage = "[Message for reloading]";
+    [TextArea]
+    public string turningMessage = "[Message for turning]";
+    [TextArea]
+    public string enemyTrackerMessage = "[Message for using the Enemy Tracker]";
 
     public Player player;
     public Crossbow crossbow;
     public Player_Teleporter teleportTool;
+
+    public GameObject controllerImage;
+    private Animator controllerAnim;
+
+    public AudioClip progressTutorialFanfareClip;
 
     private void Awake()
     {
@@ -40,7 +50,9 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ProgressTutorial(1);
+        controllerAnim = controllerImage.GetComponent<Animator>();
+        tutorialProgress = 1;
+        beginNextStep = true;
     }
 
     // Update is called once per frame
@@ -53,31 +65,39 @@ public class TutorialManager : MonoBehaviour
             {
                 case (1):
                     // Step 1 - Equip Crossbow
-                    Step1();
+                    StepCrossbow();
                     break;
                 case (2):
                     // Step 2 - Reveal Targets
-                    Step2();
+                    StepRevealTargets();
                     break;
                 case (3):
                     // Step 3 - Shoot Target
-                    Step3();
+                    StepShoot();
                     break;
                 case (4):
                     // Step 4 - Reload
-                    Step4();
+                    StepReload();
                     break;
                 case (5):
                     //Step 5 - Equip Teleporter
-                    Step5();
+                    StepTeleporter();
                     break;
                 case (6):
                     //Step 6 - Teleport
-                    Step6();
+                    StepTeleport();
                     break;
                 case (7):
                     //Step 7 - Finish Tutorial
-                    Step7();
+                    StepFinish();
+                    break;
+                case (8):
+                    //Step 8 - Turning
+                    StepTurn();
+                    break;
+                case (9):
+                    //Step 9 - Tracker
+                    StepTracker();
                     break;
 
                     
@@ -96,7 +116,8 @@ public class TutorialManager : MonoBehaviour
                 break;
             case (2):
                 // Step 2 - Reveal Targets
-                if (ControllerManager.ButtonPressCheck(crossbow.highlightBtn))
+                //if (ControllerManager.ButtonPressCheck(crossbow.highlightBtn))
+                if (player.isHighlighting)
                 {
                     ProgressTutorial(3);
                 }
@@ -115,11 +136,18 @@ public class TutorialManager : MonoBehaviour
                 //Step 5 - Equip Teleporter
                 if (teleportTool.canTeleport)
                 {
-                    ProgressTutorial(6);
+                    ProgressTutorial(8);
                 }
                 break;
             case (6):
                 //Step 6 - Teleport
+                break;
+            case (8):
+                //step 8 - turning
+                if (OVRInput.Get(OVRInput.RawAxis2D.RThumbstick).x > 0.5f || OVRInput.Get(OVRInput.RawAxis2D.RThumbstick).x < -0.5)
+                {
+                    ProgressTutorial(6);
+                }
                 break;
 
 
@@ -143,6 +171,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ProgressTutorial(int stage)
     {
+        Audio_Manager.Instance.PlayFanfare(progressTutorialFanfareClip);
         tutorialProgress = stage;
         beginNextStep = true;
     }
@@ -150,7 +179,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (tutorialProgress == 3)
         {
-            ProgressTutorial(4);
+            ProgressTutorial(5);
         }
     }
     public void PlayerTeleported()
@@ -160,42 +189,66 @@ public class TutorialManager : MonoBehaviour
             ProgressTutorial(7);
         }
     }
-    private void Step1()
+    private void StepCrossbow()
     {
         //Step 1 - Equip Crossbow
+        controllerAnim.SetTrigger("Right_B");
         speechBubbleText.text = equipCrossbowMessage;
 
     }
-    private void Step2()
+    private void StepRevealTargets()
     {
         //Step 2 - Reveal Targets
+        controllerAnim.SetTrigger("Right_A");
         speechBubbleText.text = revealTargetMessage;
     }
-    private void Step3()
+    private void StepShoot()
     {
         // Step 3 - Shoot Target
+        controllerAnim.SetTrigger("Right_Trigger");
         speechBubbleText.text = shootingMessage;
 
     }
-    private void Step4()
+    private void StepReload()
     {
         //Step 4 - Reload
+        controllerAnim.SetTrigger("Right_Grab");
         speechBubbleText.text = reloadMessage;
     }
-    private void Step5()
+    private void StepTeleporter()
     {
         //Step 5 - Equip Teleporter
+        controllerAnim.SetTrigger("Left_X");
         speechBubbleText.text = equipTeleportMessage;
 
     }
-    private void Step6()
+    private void StepTeleport()
     {
         //Step 6 - Teleport
+        controllerAnim.SetTrigger("Left_Trigger");
         speechBubbleText.text = teleportingMessage;
     }
-    private void Step7()
+    private void StepFinish()
     {
         //Step 7 - Finish Tutorial
+        controllerImage.SetActive(false);
         speechBubbleText.text = endTutorialMessage;
+    }
+    private void StepTurn()
+    {
+        //Step 8 - Turning
+        controllerAnim.SetTrigger("Right_Stick");
+        speechBubbleText.text = turningMessage;
+    }
+    private void StepTracker()
+    {
+        //Step 9 - Tracker
+        controllerAnim.SetTrigger("Left_Y");
+        speechBubbleText.text = enemyTrackerMessage;
+    }
+
+    public void MoveMessage(Transform position)
+    {
+        speechCanvas.transform.position = position.position;
     }
 }

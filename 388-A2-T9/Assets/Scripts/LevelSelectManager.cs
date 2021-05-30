@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelSelectManager : MonoBehaviour
 {
     Game_Manager gM;
     Player player;
     public AudioClip customMainMusic;
+
+    public GameObject[] disableOnLoad;
+
+    [Header("GameWin Screen Stuff")]
+    public bool useGameWinStuff;
+    public TextMeshProUGUI totalTimeText;
+
+    public AudioClip resetProgSND;
     private void Awake()
     {
         gM = Game_Manager.Instance;
@@ -28,12 +37,19 @@ public class LevelSelectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (useGameWinStuff)
+        {
+            UpdateGameWinScreen();
+        }
     }
 
     public void LoadLevel(int levelID)
     {
         StartCoroutine(LoadAsync(levelID));
+        for (int i = 0; i < disableOnLoad.Length; i++)
+        {
+            disableOnLoad[i].SetActive(false);
+        }
     }
 
     IEnumerator LoadAsync(int sceneIndex)
@@ -49,5 +65,32 @@ public class LevelSelectManager : MonoBehaviour
             yield return null;
         }
         
+    }
+
+    public void UpdateGameWinScreen()
+    {
+        float totalGameTime = 0;
+        for (int i = 0; i < Game_Manager.Instance.bestLevelTimes.Length; i++)
+        {
+            totalGameTime += Game_Manager.Instance.bestLevelTimes[i];
+        }
+        totalTimeText.text = "Total Completion Time:\n" + FormatTime(totalGameTime);
+    }
+    string FormatTime(float time)
+    {
+        int minutes = (int)time / 60;
+        int seconds = (int)time - 60 * minutes;
+        int milliseconds = (int)(1000 * (time - minutes * 60 - seconds));
+
+        return string.Format("{0:00}:{1:00}:{2:000}", minutes, seconds, milliseconds);
+    }
+
+    public void ResetGameProgress()
+    {
+        if (resetProgSND != null)
+        {
+            Audio_Manager.Instance.PlayFanfare(resetProgSND);
+        }
+        Game_Manager.Instance.ResetSaveData();
     }
 }

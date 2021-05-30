@@ -70,19 +70,8 @@ public class Enemy_Manager : MonoBehaviour
         }
         gameWinUI.SetActive(playerSpotted);
 
-        if (playerSpotted)
-        {
-            if (Audio_Manager.Instance.playingMainAudio)
-            {
-                Audio_Manager.Instance.EnterCombat();
-            }
-        } else
-        {
-            if (!Audio_Manager.Instance.playingMainAudio)
-            {
-                Audio_Manager.Instance.LeaveCombat();
-            }
-        }
+        Audio_Manager.Instance.playerSpotted = playerSpotted;
+
     }
     public void ToggleRemainingEnemies(bool state)
     {

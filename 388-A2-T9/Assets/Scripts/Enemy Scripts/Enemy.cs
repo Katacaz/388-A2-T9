@@ -43,6 +43,8 @@ public class Enemy : MonoBehaviour
     public AudioClip deathSND;
     public AudioClip searchSND;
     public AudioClip alertSND;
+    public AudioSource stepAudioSource;
+    public AudioClip[] stepSND;
 
     private float alertSNDdelay = 5.0f;
     private float alertSNDtimer;
@@ -241,5 +243,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
+    public void Step()
+    {
+        if (stepSND != null)
+        {
+            stepAudioSource.clip = stepSND[Random.Range(0, stepSND.Length)];
+            stepAudioSource.Play();
+        }
+    }
 }

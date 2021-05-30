@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3326866}
   - component: {fileID: 2372794}
   - component: {fileID: 65407666030217434}
+  - component: {fileID: 4110492134615967327}
   m_Layer: 9
   m_Name: SM_Bld_House_Base_01
   m_TagString: Untagged
@@ -95,3 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.409956, y: 2.2785594, z: 5.902767}
   m_Center: {x: 0.0000009536743, y: 1.1392797, z: 0.0000019073486}
+--- !u!208 &4110492134615967327
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113406}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.2050002, y: 1.139, z: 2.9510002}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 1.139, z: 0}
+  m_TimeToStationary: 0.5

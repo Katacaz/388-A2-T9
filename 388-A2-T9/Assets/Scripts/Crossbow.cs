@@ -31,12 +31,12 @@ public class Crossbow : MonoBehaviour
     [Header("Controls")]
     public ControllerManager.Buttons reloadBtn;
     public ControllerManager.Buttons shootBtn;
-    public ControllerManager.Buttons highlightBtn;
-    private Highlight[] highlightables;
-    private float highlightRange = 15.0f;
-    private bool isHighlighting;
-    private float highlightTimer = 5.0f;
-    private float hTime;
+    //public ControllerManager.Buttons highlightBtn;
+    //private Highlight[] highlightables;
+    //private float highlightRange = 15.0f;
+    //private bool isHighlighting;
+    //private float highlightTimer = 5.0f;
+    //private float hTime;
 
     [Header("Audio Related")]
     public AudioSource audioSource;
@@ -56,7 +56,7 @@ public class Crossbow : MonoBehaviour
         UpdateLoadedArrow();
         ShootCheck();
         ReloadCheck();
-        HighlightCheck();
+        //HighlightCheck();
     }
 
     private void UpdateLoadedArrow()
@@ -173,6 +173,7 @@ public class Crossbow : MonoBehaviour
             aimLine.gameObject.SetActive(false);
         }
     }
+    /*
     public void HighlightCheck()
     {
         if (isHighlighting)
@@ -224,4 +225,5 @@ public class Crossbow : MonoBehaviour
             highlightables[i].StopHighlight();
         }
     }
+    */
 }

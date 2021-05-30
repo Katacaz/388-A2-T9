@@ -40,6 +40,12 @@ public class Player : MonoBehaviour
     private bool rightGrappleActive;
     private bool rightGrappleGrabbedObject;
 
+    [Header("Highlight Related")]
+    public OVRInput.RawButton highlightBtn = OVRInput.RawButton.A;
+    private Highlight[] highlightables;
+    private float highlightRange = 15.0f;
+    public bool isHighlighting;
+
 
     private void Awake()
     {
@@ -130,6 +136,8 @@ public class Player : MonoBehaviour
             }
         }
 
+        HighlightCheck();
+
     }
 
     public void SetCrossbowActive(bool state)
@@ -190,5 +198,47 @@ public class Player : MonoBehaviour
     public void LeftGrappleRetract()
     {
 
+    }
+    public void HighlightCheck()
+    {
+        if (!isHighlighting)
+        {
+            if (OVRInput.Get(highlightBtn))
+            {
+                isHighlighting = true;
+                HighlightObjects();
+            }
+        }
+        else
+        {
+            if (OVRInput.GetUp(highlightBtn))
+            {
+                isHighlighting = false;
+                StopHighlight();
+            }
+        }
+
+    }
+    public void HighlightObjects()
+    {
+        //Find all Highlightable Objects
+        highlightables = FindObjectsOfType<Highlight>();
+        for (int i = 0; i < highlightables.Length; i++)
+        {
+            //Check the distance to the object, if within the highlight range it will highlight it
+            if (Vector3.Distance(transform.position, highlightables[i].transform.position) < highlightRange * 5)
+            {
+                highlightables[i].StartHighlight();
+            }
+        }
+    }
+    public void StopHighlight()
+    {
+        //Find all highlightable objects and tell them to stop highlighting
+        highlightables = FindObjectsOfType<Highlight>();
+        for (int i = 0; i < highlightables.Length; i++)
+        {
+            highlightables[i].StopHighlight();
+        }
     }
 }

@@ -98,7 +98,7 @@ public class Player_Teleporter : MonoBehaviour
                 Destroy(activeAimEffect);
                 activeAimEffect = null;
             }*/
-            canTeleport = false;
+            //canTeleport = false;
         }
     }
     public void Aim()

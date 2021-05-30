@@ -51,23 +51,41 @@ public class LevelSelectOption : MonoBehaviour
                     if (Game_Manager.Instance.levelStatus[i])
                     {
                         tempUnlocked = true;
-                    } else
+                    }
+                    else
                     {
                         tempUnlocked = false;
                     }
                 }
             }
             levelUnlocked = tempUnlocked;
+        } else
+        {
+            for (int i = 0; i < prereqLevels.Length; i++)
+            {
+                //Check if level is required
+                if (prereqLevels[i])
+                {
+                    //Check if level was completed
+                    if (!Game_Manager.Instance.levelStatus[i])
+                    {
+                        levelUnlocked = false;
+                    }
+                    
+                }
+            }
         }
-
         model.SetActive(levelUnlocked);
         
     }
     void CheckBestTime()
     {
-        bestTimeText.gameObject.SetActive(levelComplete);
-        bestTime = Game_Manager.Instance.bestLevelTimes[levelID];
-        bestTimeText.text = "Best Time: " + FormatTime(bestTime);
+        if (bestTimeText != null)
+        {
+            bestTimeText.gameObject.SetActive(levelComplete);
+            bestTime = Game_Manager.Instance.bestLevelTimes[levelID];
+            bestTimeText.text = "Best Time: " + FormatTime(bestTime);
+        }
     }
     void CheckLevelComplete()
     {

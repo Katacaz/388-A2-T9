@@ -63,4 +63,13 @@ public class Game_Manager : MonoBehaviour
             bestLevelTimes[i] = data.bestLevelTimes[i];
         }
     }
+
+    public void ResetSaveData()
+    {
+        tutorialComplete = false;
+        int totalLevels = levelStatus.Length;
+        levelStatus = new bool[totalLevels];
+        bestLevelTimes = new float[totalLevels];
+        SaveSystem.SaveGameInfo(this);
+    }
 }

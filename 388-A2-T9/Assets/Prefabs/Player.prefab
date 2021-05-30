@@ -150,7 +150,7 @@ MonoBehaviour:
   aimLine: {fileID: 3456385091236418560}
   aimLocked: {fileID: 2100000, guid: 689d8ec0ea5b0a04aa23d6d0baa97db2, type: 2}
   aimMissed: {fileID: 2100000, guid: 29cd360bf0474684c9a849bb6c536126, type: 2}
-  teleportOffset: {x: 0, y: 1, z: 0}
+  teleportOffset: {x: 0, y: 1.25, z: 0}
   tpButton: 268435456
   tpButtonTouch: 4096
   teleportButton: 4
@@ -2630,6 +2630,13 @@ MonoBehaviour:
   canSummonTeleporter: 0
   tpTool: {fileID: 7840468537982942963}
   enemyNearbyRange: 2
+  grappleSpeed: 5
+  leftGrappleObjectPrefab: {fileID: 0}
+  leftGrappleOrigin: {fileID: 0}
+  leftGrappleLine: {fileID: 0}
+  rightGrappleObjectPrefab: {fileID: 0}
+  rightGrappleOrigin: {fileID: 0}
+  rightGrappleLine: {fileID: 0}
 --- !u!1 &4426078852081255795
 GameObject:
   m_ObjectHideFlags: 0
