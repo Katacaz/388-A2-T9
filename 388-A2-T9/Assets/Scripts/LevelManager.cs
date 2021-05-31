@@ -136,7 +136,7 @@ public class LevelManager : MonoBehaviour
         if (!levelLoading)
         {
             loadingBar.gameObject.SetActive(false);
-            loadingText.text = "Press A to Continue";
+            loadingText.text = "Press B to Continue";
         }
 
         
