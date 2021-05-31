@@ -542,7 +542,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.4597576, y: 18.700558}
-  m_SizeDelta: {x: 150.3, y: 27.1}
+  m_SizeDelta: {x: 215.85, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7374699527263670280
 CanvasRenderer:
@@ -572,17 +572,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press 'A' to Continue
+  m_text: Press 'B' to Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e9dffbbe835888d41b8269d796cfcb09, type: 2}
+  m_sharedMaterial: {fileID: 6046103843999553531, guid: e9dffbbe835888d41b8269d796cfcb09, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -599,10 +599,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.69
+  m_fontSize: 21.55
   m_fontSizeBase: 15.69
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   gameWinObject: {fileID: 1919531896023512381}
   loadingText: {fileID: 6665108400714087064}
   loadingBar: {fileID: 7801026539813486326}
-  continueButton: 0
+  continueButton: 1
   levelTimeText: {fileID: 7268828636935511031}
   bestLevelTimeText: {fileID: 6691147621383666972}
   levelTime: 0

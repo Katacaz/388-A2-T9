@@ -15,6 +15,7 @@ public class LevelSelectManager : MonoBehaviour
     [Header("GameWin Screen Stuff")]
     public bool useGameWinStuff;
     public TextMeshProUGUI totalTimeText;
+    public GameObject gameWinObject;
 
     public AudioClip resetProgSND;
     private void Awake()
@@ -41,6 +42,7 @@ public class LevelSelectManager : MonoBehaviour
         {
             UpdateGameWinScreen();
         }
+        gameWinObject.SetActive(AllLevelsCompleted());
     }
 
     public void LoadLevel(int levelID)
@@ -66,7 +68,18 @@ public class LevelSelectManager : MonoBehaviour
         }
         
     }
-
+    public bool AllLevelsCompleted()
+    {
+        bool allComplete = true;
+        for (int i = 0; i < Game_Manager.Instance.levelStatus.Length; i++)
+        {
+            if (!Game_Manager.Instance.levelStatus[i])
+            {
+                allComplete = false;
+            }
+        }
+        return allComplete;
+    }
     public void UpdateGameWinScreen()
     {
         float totalGameTime = 0;

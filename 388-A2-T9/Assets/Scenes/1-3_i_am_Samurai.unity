@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009640636, g: 0.014224011, b: 0.12224538, a: 1}
+  m_IndirectSpecularColor: {r: 0.012594532, g: 0.017550718, b: 0.12581715, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1419,6 +1419,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -2937,6 +2941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 3
@@ -4026,6 +4034,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -5205,6 +5217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 5
@@ -5868,6 +5884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -6339,6 +6359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -6750,6 +6774,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -7216,6 +7244,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -8005,6 +8037,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (83)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -8086,6 +8122,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -8594,6 +8634,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -9427,6 +9471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 3
@@ -9575,6 +9623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -9721,6 +9773,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -10221,6 +10277,100 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 451936, guid: 8b499951a29658b4cb6bfdb4cb51be98, type: 3}
   m_PrefabInstance: {fileID: 393294543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &397243301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 850854667}
+    m_Modifications:
+    - target: {fileID: 2132833948911621436, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797358, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797358, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: alertTimer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797358, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: willPatrol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797358, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: alertPerSecond
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797360, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Captain (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797360, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -31.303413
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -26.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.09150153
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.995805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 190.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832783207852809534, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832783207852845998, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+--- !u!4 &397243302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2132833950154797361, guid: 9ba4b9f446b96ec4b852550ac084d2f0, type: 3}
+  m_PrefabInstance: {fileID: 397243301}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &406750235
 PrefabInstance:
@@ -10812,6 +10962,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -11732,6 +11886,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -11832,6 +11990,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -11976,6 +12138,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -12268,6 +12434,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -12942,6 +13112,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 64618696401932131, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
   m_PrefabInstance: {fileID: 534805011}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &535088716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 535088717}
+  - component: {fileID: 535088718}
+  m_Layer: 0
+  m_Name: C1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &535088717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535088716}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.173, y: 3.39, z: 26.81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2128660374}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &535088718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535088716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c5aaf70d78c5b4cad3c69aef34a57f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endOfPath: 1
+  connectedNodes:
+  - {fileID: 535088718}
 --- !u!1001 &536623658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13391,6 +13607,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -14210,6 +14430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 5
@@ -14303,6 +14527,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -14912,6 +15140,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -15679,6 +15911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 1
@@ -15751,6 +15987,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -16061,6 +16301,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -17420,6 +17664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 6
@@ -18224,6 +18472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -18376,6 +18628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -18465,6 +18721,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -18755,6 +19015,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -19080,6 +19344,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -20836,6 +21104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 0
@@ -21597,6 +21869,7 @@ Transform:
   - {fileID: 69030327}
   - {fileID: 571216905}
   - {fileID: 1187409099}
+  - {fileID: 397243302}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22614,6 +22887,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -24194,6 +24471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -24275,6 +24556,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -24796,6 +25081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -25005,6 +25294,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -25737,6 +26030,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -26778,6 +27075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -26991,6 +27292,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -28246,6 +28551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -28497,6 +28806,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -29211,6 +29524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 5
@@ -29444,6 +29761,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (72)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -29734,6 +30055,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -30106,6 +30431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -30187,6 +30516,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -30645,6 +30978,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (84)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -31702,6 +32039,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -33319,6 +33660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 3
@@ -33601,6 +33946,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -36290,6 +36639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 5
@@ -36637,6 +36990,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (74)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -37177,6 +37534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 3
@@ -37578,6 +37939,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -38704,6 +39069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 0
@@ -38985,6 +39354,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 3
@@ -39070,6 +39443,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -39388,6 +39765,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -41691,6 +42072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -42527,6 +42912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -43333,6 +43722,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -43476,6 +43869,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -44435,6 +44832,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -49732,6 +50133,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -50438,6 +50843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -51007,6 +51416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (80)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -51344,6 +51757,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -52147,6 +52564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 1
@@ -52833,6 +53254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 2
@@ -52914,6 +53339,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -53062,6 +53491,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -53955,6 +54388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 1
@@ -54343,6 +54780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -54569,6 +55010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 3
@@ -54654,6 +55099,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -55069,6 +55518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 4
@@ -55158,6 +55611,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -55570,6 +56027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport_Location (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
       value: 3
@@ -55903,6 +56364,10 @@ PrefabInstance:
     - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: m_Name
       value: Teleport_Location (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618696401932132, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2356822473400029934, guid: a0de62e084ece254bacbe589791c35f0, type: 3}
       propertyPath: connectedPoints.Array.size
@@ -57190,6 +57655,7 @@ Transform:
   - {fileID: 243818520}
   - {fileID: 72238487}
   - {fileID: 1504095440}
+  - {fileID: 535088717}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
